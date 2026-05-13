@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#ffffff"/>
+
+  <!-- Subtle accent glow on right -->
+  <defs>
+    <radialGradient id="glow" cx="85%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#ff5a1f" stop-opacity="0.18"/>
+      <stop offset="60%" stop-color="#ff5a1f" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#ff5a1f" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" x="0" y="0" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M 44 0 L 0 0 L 0 44" fill="none" stroke="#000000" stroke-opacity="0.035" stroke-width="1"/>
+    </pattern>
+    <mask id="gridMask">
+      <radialGradient id="gm" cx="50%" cy="50%" r="60%">
+        <stop offset="0%" stop-color="white"/>
+        <stop offset="75%" stop-color="black"/>
+      </radialGradient>
+      <rect width="1200" height="630" fill="url(#gm)"/>
+    </mask>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#grid)" mask="url(#gridMask)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Brand mark + wordmark -->
+  <g transform="translate(80, 76)">
+    <rect width="48" height="48" rx="12" fill="#0a0a0a"/>
+    <circle cx="24" cy="24" r="5.2" fill="#ff5a1f"/>
+    <circle cx="24" cy="24" r="11" stroke="#ff5a1f" stroke-width="2" fill="none" opacity="0.5"/>
+    <text x="64" y="20" font-family="'Space Grotesk', 'Inter', -apple-system, sans-serif" font-size="22" font-weight="700" fill="#0a0a0a" letter-spacing="-0.4">a26</text>
+    <text x="113" y="20" font-family="'Space Grotesk', 'Inter', -apple-system, sans-serif" font-size="18" font-weight="500" fill="#78716c">Local Lead Co</text>
+    <text x="64" y="42" font-family="'Inter', -apple-system, sans-serif" font-size="13" font-weight="500" fill="#ff5a1f" letter-spacing="2">YOUR AI STAFF</text>
+  </g>
+
+  <!-- Headline -->
+  <g transform="translate(80, 240)">
+    <text font-family="'Inter', -apple-system, sans-serif" font-size="62" font-weight="600" fill="#0a0a0a" letter-spacing="-1.5">
+      <tspan x="0" dy="0">Stop losing customers</tspan>
+      <tspan x="0" dy="76">to the business</tspan>
+      <tspan x="0" dy="76"><tspan>down the street.</tspan></tspan>
+    </text>
+    <rect x="0" y="220" width="425" height="6" rx="3" fill="#ff5a1f"/>
+  </g>
+
+  <!-- Subhead -->
+  <g transform="translate(80, 520)">
+    <text font-family="'Inter', -apple-system, sans-serif" font-size="22" font-weight="400" fill="#57534e">
+      <tspan x="0" dy="0">Your full AI staff for less than one part-time hire —</tspan>
+      <tspan x="0" dy="30">answers every call, books every appointment, 24/7.</tspan>
+    </text>
+  </g>
+
+  <!-- Bottom-right URL pill -->
+  <g transform="translate(944, 558)">
+    <rect width="176" height="40" rx="20" fill="#0a0a0a"/>
+    <text x="88" y="26" font-family="'Inter', -apple-system, sans-serif" font-size="14" font-weight="500" fill="white" text-anchor="middle">a26locallead.co</text>
+  </g>
+</svg>
