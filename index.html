@@ -3,19 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>a26 Local Lead Co — Websites & Marketing for Local Businesses</title>
+<title>a26 Local Lead Co — Your AI Staff for Local Service Businesses</title>
 <meta name="description" content="Your full AI staff for local service businesses — receptionist, concierge, review manager, content team, and bookings agent. Working 24/7 for less than one part-time hire.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230a0a0a'/%3E%3Ccircle cx='50' cy='50' r='12' fill='%23ff5a1f'/%3E%3Ccircle cx='50' cy='50' r='24' stroke='%23ff5a1f' stroke-width='3' fill='none' opacity='0.5'/%3E%3C/svg%3E">
 <link rel="canonical" href="https://a26locallead.co/">
-<meta property="og:title" content="a26 Local Lead Co — Websites & Marketing for Local Businesses">
+<meta property="og:title" content="a26 Local Lead Co — Your AI Staff for Local Service Businesses">
 <meta property="og:description" content="Your full AI staff for local service businesses — receptionist, concierge, review manager, content team, and bookings agent. Working 24/7.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://a26locallead.co/">
 <meta property="og:site_name" content="a26 Local Lead Co">
+<meta property="og:image" content="https://a26locallead.co/og.png">
+<meta property="og:image:secure_url" content="https://a26locallead.co/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="a26 Local Lead Co — Stop losing customers to the business down the street.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="a26 Local Lead Co — Websites & Marketing for Local Businesses">
+<meta name="twitter:title" content="a26 Local Lead Co — Your AI Staff for Local Service Businesses">
 <meta name="twitter:description" content="Your full AI staff for local service businesses — receptionist, concierge, review manager, content team, and bookings agent. Working 24/7.">
+<meta name="twitter:image" content="https://a26locallead.co/og.png">
 <meta name="theme-color" content="#ffffff">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "a26 Local Lead Co",
+  "description": "AI staff for local service businesses — receptionist, concierge, review manager, content team, and bookings agent. Working 24/7 for less than one part-time hire.",
+  "url": "https://a26locallead.co",
+  "email": "localleads@a26cos.com",
+  "priceRange": "$397–$797/mo",
+  "areaServed": "United States",
+  "serviceType": ["AI Receptionist", "AI Concierge", "AI Review Manager", "AI Content Team", "AI Booking & Reminders", "AI Reactivator"],
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "a26 Companies LLC"
+  }
+}
+</script>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -162,6 +185,177 @@
   html { scroll-behavior: smooth; }
   section[id] { scroll-margin-top: 80px; }
 
+  /* Sticky scroll CTA */
+  .sticky-cta {
+    position: fixed;
+    bottom: 18px;
+    left: 50%;
+    transform: translate(-50%, 120%);
+    width: calc(100% - 32px);
+    max-width: 520px;
+    z-index: 999;
+    background: var(--ink);
+    color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18), 0 2px 6px rgba(0,0,0,0.08);
+    opacity: 0;
+    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.32s ease-out;
+    pointer-events: none;
+  }
+  .sticky-cta.sticky-cta-visible {
+    transform: translate(-50%, 0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .sticky-cta-content {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.7rem 0.7rem 0.7rem 1rem;
+  }
+  .sticky-cta-text {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+  }
+  .sticky-cta-text strong {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: white;
+    letter-spacing: -0.005em;
+  }
+  .sticky-cta-text span {
+    font-size: 0.74rem;
+    color: rgba(255,255,255,0.65);
+    margin-top: 0.1rem;
+  }
+  .sticky-cta-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 0.55rem 0.85rem;
+    background: var(--accent);
+    color: white;
+    font-weight: 500;
+    font-size: 0.82rem;
+    border-radius: 0.5rem;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.2s;
+    line-height: 1;
+  }
+  .sticky-cta-btn:hover { background: #e64f17; transform: translateY(-1px); }
+  .sticky-cta-close {
+    width: 28px; height: 28px;
+    border-radius: 9999px;
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.6);
+    font-size: 1.1rem;
+    line-height: 1;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: background 0.2s, color 0.2s;
+    flex-shrink: 0;
+  }
+  .sticky-cta-close:hover { background: rgba(255,255,255,0.16); color: white; }
+  @media (max-width: 640px) {
+    .sticky-cta-text span { display: none; }
+    .sticky-cta-text strong { font-size: 0.8rem; }
+    .sticky-cta-btn { font-size: 0.75rem; padding: 0.5rem 0.65rem; }
+    .sticky-cta {
+      left: 16px;
+      transform: translate(0, 120%);
+      max-width: calc(100% - 100px); /* leave room for chat bubble at bottom-right */
+    }
+    .sticky-cta.sticky-cta-visible { transform: translate(0, 0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sticky-cta { transition: opacity 0.2s ease-out; }
+  }
+
+  /* Trust signals */
+  .trust-mark {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #78716c;
+    letter-spacing: -0.005em;
+    transition: color 0.2s;
+  }
+  .trust-mark:hover { color: var(--ink); }
+  .trust-dot {
+    width: 4px; height: 4px;
+    border-radius: 9999px;
+    background: var(--line);
+    flex-shrink: 0;
+  }
+  @media (max-width: 640px) {
+    .trust-dot { display: none; }
+  }
+
+  /* Comparison grid */
+  .compare-grid { background: white; }
+  .compare-row {
+    display: grid;
+    grid-template-columns: 2fr 1.2fr 1fr 1fr 1fr;
+    border-bottom: 1px solid var(--line);
+  }
+  .compare-row.compare-last { border-bottom: none; }
+  .compare-row.compare-header {
+    background: var(--bg-soft);
+  }
+  .compare-cell {
+    padding: 1rem 0.9rem;
+    font-size: 0.9rem;
+    color: var(--body);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-right: 1px solid var(--line);
+  }
+  .compare-cell:last-child { border-right: none; }
+  .compare-cell.compare-feature {
+    font-weight: 500;
+    color: var(--ink);
+    text-align: left;
+    align-items: flex-start;
+    font-size: 0.85rem;
+    line-height: 1.35;
+  }
+  .compare-cell.compare-us {
+    background: var(--accent-soft);
+    border-right: 1px solid #fde2d0;
+  }
+  .check-yes {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 26px; height: 26px;
+    border-radius: 9999px;
+    background: var(--accent);
+    color: white;
+    font-weight: 700;
+    font-size: 0.85rem;
+    line-height: 1;
+  }
+  .check-no {
+    color: #d6d3d1;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  .check-partial {
+    font-size: 0.72rem;
+    color: var(--muted);
+    line-height: 1.25;
+    text-align: center;
+  }
+  @media (max-width: 768px) {
+    .compare-row {
+      grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr;
+    }
+    .compare-cell { padding: 0.7rem 0.4rem; font-size: 0.78rem; }
+    .compare-cell.compare-feature { font-size: 0.75rem; }
+    .check-yes { width: 20px; height: 20px; font-size: 0.7rem; }
+  }
+
   .fade-in { opacity: 0; transform: translateY(8px); transition: opacity 0.4s ease-out, transform 0.4s ease-out; }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
 
@@ -249,6 +443,26 @@
     <div class="fade-in">
       <div class="display text-3xl md:text-4xl mb-1.5">46%</div>
       <p class="text-body text-sm leading-relaxed max-w-[16rem] mx-auto">of every Google search is someone looking for a local business</p>
+    </div>
+  </div>
+</section>
+
+<!-- BUILT ON -->
+<section class="border-b border-line bg-white py-10 px-6">
+  <div class="max-w-5xl mx-auto">
+    <p class="text-center text-[0.7rem] font-semibold tracking-[0.18em] uppercase text-muted mb-5 fade-in">Built on the infrastructure your customers already trust</p>
+    <div class="flex flex-wrap items-center justify-center gap-x-9 gap-y-3 fade-in">
+      <span class="trust-mark">Twilio</span>
+      <span class="trust-dot"></span>
+      <span class="trust-mark">OpenAI GPT&#8209;4o</span>
+      <span class="trust-dot"></span>
+      <span class="trust-mark">ElevenLabs</span>
+      <span class="trust-dot"></span>
+      <span class="trust-mark">Stripe</span>
+      <span class="trust-dot"></span>
+      <span class="trust-mark">GoHighLevel</span>
+      <span class="trust-dot"></span>
+      <span class="trust-mark">Google Calendar</span>
     </div>
   </div>
 </section>
@@ -458,6 +672,90 @@
   </div>
 </section>
 
+<!-- HOW WE STACK UP -->
+<section class="section bg-soft border-y border-line">
+  <div class="max-w-5xl mx-auto">
+    <div class="max-w-2xl mx-auto text-center mb-12 fade-in">
+      <span class="kicker">How we stack up</span>
+      <h2 class="display text-[2rem] md:text-[2.5rem] mt-3 leading-[1.15]">
+        Most tools do one thing.<br>We staff the whole front desk.
+      </h2>
+    </div>
+
+    <div class="card overflow-hidden fade-in compare-grid">
+      <div class="compare-row compare-header">
+        <div class="compare-cell"></div>
+        <div class="compare-cell compare-us">
+          <div class="text-[0.95rem] font-semibold text-ink">a26 Local Lead Co</div>
+          <div class="text-xs text-muted mt-0.5">$397–$797/mo</div>
+        </div>
+        <div class="compare-cell">
+          <div class="text-[0.95rem] font-semibold text-ink">Podium / Birdeye</div>
+          <div class="text-xs text-muted mt-0.5">~$300–$500/mo</div>
+        </div>
+        <div class="compare-cell">
+          <div class="text-[0.95rem] font-semibold text-ink">NiceJob</div>
+          <div class="text-xs text-muted mt-0.5">~$75/mo</div>
+        </div>
+        <div class="compare-cell">
+          <div class="text-[0.95rem] font-semibold text-ink">Part-time receptionist</div>
+          <div class="text-xs text-muted mt-0.5">$1.8k–$2.4k/mo</div>
+        </div>
+      </div>
+
+      <div class="compare-row">
+        <div class="compare-cell compare-feature">24/7 phone coverage on missed calls</div>
+        <div class="compare-cell compare-us"><span class="check-yes">✓</span></div>
+        <div class="compare-cell"><span class="check-no">—</span></div>
+        <div class="compare-cell"><span class="check-no">—</span></div>
+        <div class="compare-cell"><span class="check-partial">Business hours only</span></div>
+      </div>
+
+      <div class="compare-row">
+        <div class="compare-cell compare-feature">AI web chat that books appointments</div>
+        <div class="compare-cell compare-us"><span class="check-yes">✓</span></div>
+        <div class="compare-cell"><span class="check-partial">SMS-based only</span></div>
+        <div class="compare-cell"><span class="check-no">—</span></div>
+        <div class="compare-cell"><span class="check-no">—</span></div>
+      </div>
+
+      <div class="compare-row">
+        <div class="compare-cell compare-feature">Review request + AI response automation</div>
+        <div class="compare-cell compare-us"><span class="check-yes">✓</span></div>
+        <div class="compare-cell"><span class="check-yes">✓</span></div>
+        <div class="compare-cell"><span class="check-yes">✓</span></div>
+        <div class="compare-cell"><span class="check-no">—</span></div>
+      </div>
+
+      <div class="compare-row">
+        <div class="compare-cell compare-feature">Weekly Google Business Profile posts</div>
+        <div class="compare-cell compare-us"><span class="check-yes">✓</span></div>
+        <div class="compare-cell"><span class="check-no">—</span></div>
+        <div class="compare-cell"><span class="check-no">—</span></div>
+        <div class="compare-cell"><span class="check-no">—</span></div>
+      </div>
+
+      <div class="compare-row">
+        <div class="compare-cell compare-feature">Dormant-customer reactivation campaigns</div>
+        <div class="compare-cell compare-us"><span class="check-yes">✓</span></div>
+        <div class="compare-cell"><span class="check-no">—</span></div>
+        <div class="compare-cell"><span class="check-no">—</span></div>
+        <div class="compare-cell"><span class="check-no">—</span></div>
+      </div>
+
+      <div class="compare-row compare-last">
+        <div class="compare-cell compare-feature">You own the phone number &amp; customer list</div>
+        <div class="compare-cell compare-us"><span class="check-yes">✓</span></div>
+        <div class="compare-cell"><span class="check-partial">Locked-in</span></div>
+        <div class="compare-cell"><span class="check-partial">Locked-in</span></div>
+        <div class="compare-cell"><span class="check-yes">✓</span></div>
+      </div>
+    </div>
+
+    <p class="text-xs text-muted text-center mt-6">Comparison reflects publicly available info as of mid-2026. Pricing varies by tier and contract length.</p>
+  </div>
+</section>
+
 <!-- TRY THE AI STAFF YOURSELF -->
 <section id="try-it" class="section bg-soft border-y border-line">
   <div class="max-w-6xl mx-auto">
@@ -587,7 +885,7 @@
         <span class="wordmark-secondary">Local Lead Co</span>
       </span>
     </div>
-    <div class="text-muted">Websites & lead generation for local businesses.</div>
+    <div class="text-muted">AI staff for local service businesses. Working 24/7.</div>
     <div>
       <a href="mailto:localleads@a26cos.com" class="text-body hover:text-ink transition">localleads@a26cos.com</a>
     </div>
@@ -675,6 +973,73 @@
     );
     window.location.href = 'mailto:localleads@a26cos.com?subject=' + subject + '&body=' + body;
   });
+</script>
+
+<!-- STICKY SCROLL CTA -->
+<div id="stickyCTA" class="sticky-cta" role="dialog" aria-label="Demo offer" hidden>
+  <div class="sticky-cta-content">
+    <div class="sticky-cta-text">
+      <strong>Hear your AI staff before you spend a dollar.</strong>
+      <span>Free 20-min demo on Duncan's calendar.</span>
+    </div>
+    <a href="#contact" class="sticky-cta-btn">Get my demo →</a>
+    <button id="stickyCTAClose" class="sticky-cta-close" aria-label="Dismiss">×</button>
+  </div>
+</div>
+<script>
+  (function() {
+    var cta = document.getElementById('stickyCTA');
+    var closeBtn = document.getElementById('stickyCTAClose');
+    if (!cta || !closeBtn) return;
+
+    var dismissed = false;
+    try { dismissed = sessionStorage.getItem('a26_cta_dismissed') === '1'; } catch (e) {}
+
+    var shown = false;
+    function maybeShow() {
+      if (dismissed || shown) return;
+      var triggerAt = 800;
+      var contactEl = document.getElementById('contact');
+      var nearContact = contactEl && contactEl.getBoundingClientRect().top < window.innerHeight + 100;
+      if (nearContact) return; // don't compete with the form
+      if (window.scrollY > triggerAt) {
+        cta.hidden = false;
+        // double-rAF so the transition animates from offscreen
+        requestAnimationFrame(function() {
+          requestAnimationFrame(function() { cta.classList.add('sticky-cta-visible'); });
+        });
+        shown = true;
+      }
+    }
+
+    function maybeHideNearContact() {
+      if (!shown) return;
+      var contactEl = document.getElementById('contact');
+      if (contactEl && contactEl.getBoundingClientRect().top < window.innerHeight + 100) {
+        cta.classList.remove('sticky-cta-visible');
+        setTimeout(function() { cta.hidden = true; shown = false; }, 320);
+      }
+    }
+
+    window.addEventListener('scroll', function() {
+      maybeShow();
+      maybeHideNearContact();
+    }, { passive: true });
+
+    closeBtn.addEventListener('click', function() {
+      cta.classList.remove('sticky-cta-visible');
+      setTimeout(function() { cta.hidden = true; }, 320);
+      dismissed = true;
+      try { sessionStorage.setItem('a26_cta_dismissed', '1'); } catch (e) {}
+    });
+
+    // Also hide if user clicks the demo CTA inside the bar
+    cta.querySelector('.sticky-cta-btn').addEventListener('click', function() {
+      cta.classList.remove('sticky-cta-visible');
+      setTimeout(function() { cta.hidden = true; }, 320);
+      try { sessionStorage.setItem('a26_cta_dismissed', '1'); } catch (e) {}
+    });
+  })();
 </script>
 
 <!-- GHL AI Concierge Chat Widget — live -->
