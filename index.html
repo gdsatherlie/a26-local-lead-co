@@ -966,17 +966,27 @@
   // Make.com webhook — site-form-lead scenario (sheet row + email alert)
   const FORM_WEBHOOK_URL = 'https://hook.us2.make.com/j1gpuwj5vyp0rsfoadnfco9nkeh6yltc';
 
-  function showFormSuccess() {
+  function showFormSuccess(payload) {
     const form = document.getElementById('contactForm');
     form.innerHTML = `
-      <div class="text-center py-10 md:py-12">
+      <div class="text-center pt-8 md:pt-10 pb-2">
         <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-accent-soft flex items-center justify-center">
           <svg width="32" height="32" fill="none" stroke="#ff5a1f" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
         </div>
-        <h3 class="text-[1.4rem] font-semibold text-ink mb-3">Got it — your receptionist is being briefed.</h3>
-        <p class="text-body leading-relaxed max-w-md mx-auto">Check your inbox in the next 60 seconds for your confirmation. Within 48 hours, your custom receptionist will be ready for you to call and approve.</p>
+        <h3 class="text-[1.4rem] font-semibold text-ink mb-3">Got it — now grab your demo call.</h3>
+        <p class="text-body leading-relaxed max-w-md mx-auto mb-6">Pick a time below. We'll walk through how your receptionist will sound on your business — 20 minutes, no commitment.</p>
       </div>
+      <div id="cal-booking-inline" style="width:100%;min-height:620px;overflow:auto"></div>
+      <p class="text-body text-sm text-center mt-4">Can't find a time? No problem — we'll email you within 24 hours either way.</p>
     `;
+    // Cal.com inline embed, prefilled with what they just typed
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", {origin:"https://cal.com"});
+    Cal("inline", {
+      elementOrSelector: "#cal-booking-inline",
+      calLink: "a26localleadco/a26-local-lead-co-demo-call",
+      config: { name: payload.name || "", email: payload.email || "" }
+    });
   }
 
   document.getElementById('contactForm').addEventListener('submit', async (e) => {
@@ -1009,7 +1019,7 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
         });
-        if (res.ok) { showFormSuccess(); return; }
+        if (res.ok) { showFormSuccess(payload); return; }
       } catch (err) {
         console.warn('Form webhook unreachable, falling back to mailto:', err);
       }
