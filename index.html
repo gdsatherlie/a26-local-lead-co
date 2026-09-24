@@ -698,7 +698,7 @@
     <div class="card p-6 md:p-7 max-w-xl mx-auto mb-9 text-left">
       <p class="text-body text-sm leading-relaxed"><span class="text-ink font-semibold">The math:</span> the average home-services job runs $300–$3,000. If your receptionist saves one missed job a month, she's paid for herself several times over.</p>
     </div>
-    <a href="#contact" class="btn-primary">
+    <a href="https://buy.stripe.com/28E00jc6T9lv2Gs4BXgUM08" target="_blank" rel="noopener" class="btn-primary">
       Get started
       <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
     </a>
@@ -821,7 +821,7 @@
         </div>
         <h3 class="text-[1.05rem] font-semibold text-ink mb-2">Prefer a human?</h3>
         <p class="text-body text-sm leading-relaxed mb-5">Book a 20-minute call and we'll walk through exactly how it works for your business — forwarding, calendar, pricing, all of it.</p>
-        <a href="https://api.leadconnectorhq.com/widget/booking/zvMw7e1RAEeJWrPmUUFH" target="_blank" rel="noopener" class="btn-primary inline-flex !text-[0.95rem]">
+        <a href="https://cal.com/a26localleadco/a26-local-lead-co-demo-call" target="_blank" rel="noopener" class="btn-primary inline-flex !text-[0.95rem]">
           Book my call
           <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
         </a>
@@ -963,8 +963,8 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-  // GHL Inbound Webhook URL — fires the "a26 Demo Request — Speed to Lead" workflow
-  const GHL_WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/JB6crFogEs4Bb6GKxqcS/webhook-trigger/369d98ac-7043-4d58-965b-b879b9b01a27';
+  // Make.com webhook — site-form-lead scenario (sheet row + email alert)
+  const FORM_WEBHOOK_URL = 'https://hook.us2.make.com/j1gpuwj5vyp0rsfoadnfco9nkeh6yltc';
 
   function showFormSuccess() {
     const form = document.getElementById('contactForm');
@@ -1000,18 +1000,18 @@
       source: 'a26locallead.co'
     };
 
-    const webhookConfigured = !GHL_WEBHOOK_URL.includes('REPLACE_WITH');
+    const webhookConfigured = !FORM_WEBHOOK_URL.includes('REPLACE_WITH');
 
     if (webhookConfigured) {
       try {
-        const res = await fetch(GHL_WEBHOOK_URL, {
+        const res = await fetch(FORM_WEBHOOK_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
         });
         if (res.ok) { showFormSuccess(); return; }
       } catch (err) {
-        console.warn('GHL webhook unreachable, falling back to mailto:', err);
+        console.warn('Form webhook unreachable, falling back to mailto:', err);
       }
     }
 
