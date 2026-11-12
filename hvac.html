@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2YYR3BLK3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2YYR3BLK3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>HVAC Demo: Call Our AI Receptionist | a26 Local Lead Co</title>
+<meta name="description" content="Live demo for heating and cooling shops: call a sample HVAC company's AI receptionist and see the text, email and lead row the owner gets.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230a0a0a'/%3E%3Ccircle cx='50' cy='50' r='12' fill='%23ff5a1f'/%3E%3Ccircle cx='50' cy='50' r='24' stroke='%23ff5a1f' stroke-width='3' fill='none' opacity='0.5'/%3E%3C/svg%3E">
+<link rel="canonical" href="https://a26locallead.co/hvac">
+<meta property="og:title" content="HVAC demo: hear your AI receptionist handle a no-heat call">
+<meta property="og:description" content="Call a sample HVAC company's AI receptionist, play a homeowner, and see what lands on the owner's phone.">
+<meta property="og:url" content="https://a26locallead.co/hvac">
+<meta property="og:image" content="https://a26locallead.co/og.svg">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #ff5a1f;
+    --accent-soft: #fff5f0;
+    --ink: #0a0a0a;
+    --body: #57534e;
+    --muted: #78716c;
+    --line: #e7e5e4;
+    --line-soft: #f5f5f4;
+    --bg: #ffffff;
+    --bg-soft: #fafaf9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: var(--body);
+    background: var(--bg);
+    font-feature-settings: 'cv11', 'ss01';
+  }
+  .text-ink { color: var(--ink); }
+  .text-body { color: var(--body); }
+  .text-muted { color: var(--muted); }
+  .accent { color: var(--accent); }
+  .bg-accent { background: var(--accent); }
+  .bg-accent-soft { background: var(--accent-soft); }
+  .border-line { border-color: var(--line); }
+  .bg-soft { background: var(--bg-soft); }
+
+  .hero-glow {
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(900px circle at 75% -10%, rgba(255, 90, 31, 0.14), transparent 50%),
+      radial-gradient(700px circle at 0% 30%, rgba(255, 90, 31, 0.06), transparent 50%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(to right, rgba(0,0,0,0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.035) 1px, transparent 1px);
+    background-size: 44px 44px;
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+
+  .pill {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.4rem 0.85rem;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 9999px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--ink);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+  }
+  .pill .dot {
+    width: 6px; height: 6px; border-radius: 9999px;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px rgba(255, 90, 31, 0.18);
+  }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem;
+    padding: 0.7rem 1.15rem;
+    background: var(--ink);
+    color: white;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border-radius: 0.55rem;
+    transition: background 0.2s, transform 0.2s;
+    line-height: 1;
+  }
+  .btn-primary:hover { background: #1c1917; transform: translateY(-1px); }
+
+  .btn-secondary {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem;
+    padding: 0.7rem 1.15rem;
+    background: white;
+    color: var(--ink);
+    font-weight: 500;
+    font-size: 0.9rem;
+    border: 1px solid var(--line);
+    border-radius: 0.55rem;
+    transition: background 0.2s, border-color 0.2s;
+    line-height: 1;
+  }
+  .btn-secondary:hover { background: var(--bg-soft); border-color: #d6d3d1; }
+
+  .card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 0.875rem;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover { border-color: #a8a29e; transform: translateY(-2px); box-shadow: 0 4px 14px rgba(0,0,0,0.04); }
+
+  .section { padding: 6rem 1.5rem; }
+  @media (max-width: 768px) { .section { padding: 4rem 1.25rem; } }
+
+  .kicker {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .display {
+    letter-spacing: -0.025em;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .brand-mark {
+    width: 1.6rem; height: 1.6rem;
+    flex-shrink: 0;
+    display: block;
+  }
+  .wordmark {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    line-height: 1;
+  }
+  .wordmark-primary {
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+  .wordmark-secondary {
+    font-weight: 500;
+    color: var(--muted);
+    font-size: 0.78em;
+    letter-spacing: 0.005em;
+  }
+  @media (max-width: 480px) {
+    .wordmark-secondary { display: none; }
+  }
+
+  html { scroll-behavior: smooth; }
+  section[id] { scroll-margin-top: 80px; }
+
+  /* Sticky scroll CTA */
+  .sticky-cta {
+    position: fixed;
+    bottom: 18px;
+    left: 50%;
+    transform: translate(-50%, 120%);
+    width: calc(100% - 32px);
+    max-width: 520px;
+    z-index: 999;
+    background: var(--ink);
+    color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18), 0 2px 6px rgba(0,0,0,0.08);
+    opacity: 0;
+    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.32s ease-out;
+    pointer-events: none;
+  }
+  .sticky-cta.sticky-cta-visible {
+    transform: translate(-50%, 0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .sticky-cta-content {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.7rem 0.7rem 0.7rem 1rem;
+  }
+  .sticky-cta-text {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+  }
+  .sticky-cta-text strong {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: white;
+    letter-spacing: -0.005em;
+  }
+  .sticky-cta-text span {
+    font-size: 0.74rem;
+    color: rgba(255,255,255,0.65);
+    margin-top: 0.1rem;
+  }
+  .sticky-cta-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 0.55rem 0.85rem;
+    background: var(--accent);
+    color: white;
+    font-weight: 500;
+    font-size: 0.82rem;
+    border-radius: 0.5rem;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.2s;
+    line-height: 1;
+  }
+  .sticky-cta-btn:hover { background: #e64f17; transform: translateY(-1px); }
+  .sticky-cta-close {
+    width: 28px; height: 28px;
+    border-radius: 9999px;
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.6);
+    font-size: 1.1rem;
+    line-height: 1;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: background 0.2s, color 0.2s;
+    flex-shrink: 0;
+  }
+  .sticky-cta-close:hover { background: rgba(255,255,255,0.16); color: white; }
+  @media (max-width: 640px) {
+    .sticky-cta-text span { display: none; }
+    .sticky-cta-text strong { font-size: 0.8rem; }
+    .sticky-cta-btn { font-size: 0.75rem; padding: 0.5rem 0.65rem; }
+    .sticky-cta {
+      left: 16px;
+      transform: translate(0, 120%);
+      max-width: calc(100% - 100px); /* leave room for chat bubble at bottom-right */
+    }
+    .sticky-cta.sticky-cta-visible { transform: translate(0, 0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sticky-cta { transition: opacity 0.2s ease-out; }
+  }
+
+  /* Trust signals */
+  .trust-mark {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #78716c;
+    letter-spacing: -0.005em;
+    transition: color 0.2s;
+  }
+  .trust-mark:hover { color: var(--ink); }
+  .trust-dot {
+    width: 4px; height: 4px;
+    border-radius: 9999px;
+    background: var(--line);
+    flex-shrink: 0;
+  }
+  @media (max-width: 640px) {
+    .trust-dot { display: none; }
+  }
+
+  /* Comparison grid */
+  .compare-grid { background: white; }
+  .compare-row {
+    display: grid;
+    grid-template-columns: 2fr 1.2fr 1fr 1fr 1fr;
+    border-bottom: 1px solid var(--line);
+  }
+  .compare-row.compare-last { border-bottom: none; }
+  .compare-row.compare-header {
+    background: var(--bg-soft);
+  }
+  .compare-cell {
+    padding: 1rem 0.9rem;
+    font-size: 0.9rem;
+    color: var(--body);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-right: 1px solid var(--line);
+  }
+  .compare-cell:last-child { border-right: none; }
+  .compare-cell.compare-feature {
+    font-weight: 500;
+    color: var(--ink);
+    text-align: left;
+    align-items: flex-start;
+    font-size: 0.85rem;
+    line-height: 1.35;
+  }
+  .compare-cell.compare-us {
+    background: var(--accent-soft);
+    border-right: 1px solid #fde2d0;
+  }
+  .check-yes {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 26px; height: 26px;
+    border-radius: 9999px;
+    background: var(--accent);
+    color: white;
+    font-weight: 700;
+    font-size: 0.85rem;
+    line-height: 1;
+  }
+  .check-no {
+    color: #d6d3d1;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  .check-partial {
+    font-size: 0.72rem;
+    color: var(--muted);
+    line-height: 1.25;
+    text-align: center;
+  }
+  @media (max-width: 768px) {
+    .compare-row {
+      grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr;
+    }
+    .compare-cell { padding: 0.7rem 0.4rem; font-size: 0.78rem; }
+    .compare-cell.compare-feature { font-size: 0.75rem; }
+    .check-yes { width: 20px; height: 20px; font-size: 0.7rem; }
+  }
+
+  .fade-in { opacity: 0; transform: translateY(8px); transition: opacity 0.4s ease-out, transform 0.4s ease-out; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  input:focus, textarea:focus { box-shadow: 0 0 0 3px rgba(255, 90, 31, 0.15); border-color: var(--accent) !important; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fade-in { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+    .btn-primary:hover { transform: none; }
+  }
+</style>
+</head>
+<body>
+<nav class="sticky top-0 z-50 backdrop-blur-md bg-white/75 border-b border-stone-100">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2.5">
+      <svg class="brand-mark" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="6" fill="#0a0a0a"/>
+        <circle cx="12" cy="12" r="2.6" fill="#ff5a1f"/>
+        <circle cx="12" cy="12" r="5.5" stroke="#ff5a1f" stroke-width="1" fill="none" opacity="0.5"/>
+      </svg>
+      <span class="wordmark text-[15px]">
+        <span class="wordmark-primary">a26</span>
+        <span class="wordmark-secondary">Local Lead Co</span>
+      </span>
+    </a>
+    <div class="flex items-center gap-5 text-sm text-body">
+      <a href="#what-you-get" class="hidden md:inline hover:text-ink transition">What you get</a>
+      <a href="#pricing" class="hidden md:inline hover:text-ink transition">Pricing</a>
+      <a href="https://cal.com/a26localleadco/a26-local-lead-co-demo-call" target="_blank" rel="noopener" class="btn-primary !py-1.5 !px-3.5 !text-[13px]">Book a call</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="relative overflow-hidden border-b border-line">
+  <div class="hero-glow"></div>
+  <div class="hero-grid"></div>
+  <div class="relative max-w-4xl mx-auto px-6 pt-16 pb-16 md:pt-24 md:pb-20 text-center">
+    <span class="pill"><span class="dot"></span>Live demo for heating &amp; cooling shops</span>
+    <h1 class="display text-[2.3rem] leading-[1.1] md:text-[3.4rem] mt-6">
+      It's 9pm in January.<br>Call and say your furnace just quit.
+    </h1>
+    <p class="text-body text-[1.05rem] md:text-lg leading-relaxed max-w-2xl mx-auto mt-6">
+      <b class="text-ink">Bluestem Heating &amp; Air</b> is a sample HVAC company we set up for this demo. Its receptionist, Riley, is the same one we'd build for your shop. Play a homeowner, then see exactly what lands on the owner's phone.
+    </p>
+    <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+      <a id="demoCallBtn" href="#" class="btn-primary !text-[1rem] !px-5 !py-3.5">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        <span id="demoCallLabel">Call the demo line</span>
+      </a>
+      <a href="https://cal.com/a26localleadco/a26-local-lead-co-demo-call" target="_blank" rel="noopener" class="btn-secondary !text-[1rem] !px-5 !py-3.5">Book a 20-minute call</a>
+    </div>
+    <p id="demoNote" class="text-muted text-sm mt-4"></p>
+  </div>
+</section>
+
+<!-- TRY THESE -->
+<section class="section bg-white">
+  <div class="max-w-6xl mx-auto">
+    <div class="max-w-2xl mb-10">
+      <span class="kicker">Try these on the call</span>
+      <h2 class="display text-[1.9rem] md:text-[2.3rem] mt-3 leading-[1.15]">Throw her the calls your office actually gets.</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="card p-6">
+        <h3 class="font-semibold text-ink mb-2">"My furnace is blowing cold air."</h3>
+        <p class="text-body text-sm leading-relaxed">Mention a baby or an elderly parent at home. She gets name, address and number, flags it urgent, and offers to connect you to the on-call tech.</p>
+      </div>
+      <div class="card p-6">
+        <h3 class="font-semibold text-ink mb-2">"I smell gas."</h3>
+        <p class="text-body text-sm leading-relaxed">She tells you to get out and call 911 from outside, then takes your details. No guessing, no do-it-yourself advice.</p>
+      </div>
+      <div class="card p-6">
+        <h3 class="font-semibold text-ink mb-2">"What's a tune-up cost?"</h3>
+        <p class="text-body text-sm leading-relaxed">She quotes the prices you give her, and only those. She never diagnoses, never quotes a repair, never promises an arrival time.</p>
+      </div>
+      <div class="card p-6">
+        <h3 class="font-semibold text-ink mb-2">"Can I talk to a real person?"</h3>
+        <p class="text-body text-sm leading-relaxed">She takes your name and number first, then connects you live to the owner's cell with a quick heads-up only the owner hears.</p>
+      </div>
+      <div class="card p-6">
+        <h3 class="font-semibold text-ink mb-2">"Do you do Carmel?"</h3>
+        <p class="text-body text-sm leading-relaxed">She knows the service area, hours, financing and maintenance plan. Outside the area, she says so politely and still takes the details.</p>
+      </div>
+      <div class="card p-6">
+        <h3 class="font-semibold text-ink mb-2">Hang up after "hello."</h3>
+        <p class="text-body text-sm leading-relaxed">Watch your phone. Callers who hang up before leaving details get an instant text back, so the job isn't lost.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section id="what-you-get" class="section bg-soft border-y border-line">
+  <div class="max-w-6xl mx-auto">
+    <div class="max-w-2xl mb-10">
+      <span class="kicker">What the owner gets</span>
+      <h2 class="display text-[1.9rem] md:text-[2.3rem] mt-3 leading-[1.15]">Seconds after she hangs up, it's on your phone.</h2>
+      <p class="text-body mt-4">This is the real format. Example caller details shown.</p>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 items-start">
+      <!-- Text -->
+      <div class="card p-6">
+        <div class="text-xs font-semibold uppercase tracking-widest text-muted mb-4">1 · Text to your cell</div>
+        <div class="rounded-2xl bg-stone-100 px-4 py-3 text-[0.92rem] text-ink leading-relaxed">
+          Bluestem HVAC demo call: Maria Lopez | (317) 555-0142 | 4412 E 56th St, Indianapolis | Need: Furnace blowing cold air, 2-month-old at home | Urgency: Urgent
+        </div>
+        <p class="text-muted text-xs mt-3">From your business line, to as many cells as you want.</p>
+      </div>
+      <!-- Email -->
+      <div class="card p-6">
+        <div class="text-xs font-semibold uppercase tracking-widest text-muted mb-4">2 · Email with the recording</div>
+        <div class="rounded-xl border border-line bg-white p-4 text-sm">
+          <div class="font-semibold text-ink mb-3">Bluestem HVAC demo call: Maria Lopez (Urgent)</div>
+          <table class="w-full text-[0.85rem]">
+            <tr><td class="text-muted pr-3 py-0.5 align-top">Name</td><td class="text-ink">Maria Lopez</td></tr>
+            <tr><td class="text-muted pr-3 py-0.5 align-top">Address</td><td class="text-ink">4412 E 56th St, Indianapolis</td></tr>
+            <tr><td class="text-muted pr-3 py-0.5 align-top">Phone</td><td class="text-ink">(317) 555-0142</td></tr>
+            <tr><td class="text-muted pr-3 py-0.5 align-top">Need</td><td class="text-ink">Furnace blowing cold air</td></tr>
+            <tr><td class="text-muted pr-3 py-0.5 align-top">Urgency</td><td class="text-ink">Urgent, infant at home</td></tr>
+          </table>
+          <div class="text-muted mt-3 mb-1">Call summary</div>
+          <p class="text-ink text-[0.85rem] leading-relaxed">Caller's furnace has been blowing cold air since this afternoon. Two-month-old in the home. Wants someone tonight if possible. Told the on-call tech will call back shortly.</p>
+          <div class="mt-3 accent text-[0.85rem] font-medium">Listen to the recording →</div>
+        </div>
+      </div>
+      <!-- Sheet -->
+      <div class="card p-6">
+        <div class="text-xs font-semibold uppercase tracking-widest text-muted mb-4">3 · A row in your lead sheet</div>
+        <div class="rounded-xl border border-line overflow-hidden text-[0.78rem]">
+          <div class="grid grid-cols-3 bg-stone-100 text-muted font-medium">
+            <div class="px-2.5 py-2">Caller</div><div class="px-2.5 py-2">Need</div><div class="px-2.5 py-2">Urgency</div>
+          </div>
+          <div class="grid grid-cols-3 border-t border-line text-ink">
+            <div class="px-2.5 py-2">Maria Lopez</div><div class="px-2.5 py-2">No heat</div><div class="px-2.5 py-2">Urgent</div>
+          </div>
+          <div class="grid grid-cols-3 border-t border-line text-ink">
+            <div class="px-2.5 py-2">Dan Price</div><div class="px-2.5 py-2">AC tune-up</div><div class="px-2.5 py-2">Routine</div>
+          </div>
+          <div class="grid grid-cols-3 border-t border-line text-ink">
+            <div class="px-2.5 py-2">Kim Tran</div><div class="px-2.5 py-2">New furnace quote</div><div class="px-2.5 py-2">This week</div>
+          </div>
+        </div>
+        <p class="text-muted text-xs mt-3">Every call, searchable, in a Google Sheet that's yours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section bg-white">
+  <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+    <div>
+      <span class="kicker">Why HVAC shops use it</span>
+      <h2 class="display text-[1.9rem] md:text-[2.3rem] mt-3 leading-[1.15]">Your busiest calls come when no one can pick up.</h2>
+      <p class="text-body mt-4 leading-relaxed">No-heat calls spike on the coldest nights. Your techs are in crawlspaces and attics all day. A homeowner with a dead furnace calls the next shop on Google if voicemail picks up, and that call can be a $150 service visit or a $10,000 replacement.</p>
+    </div>
+    <div class="grid grid-cols-1 gap-4">
+      <div class="card p-6">
+        <div class="display text-3xl">69%</div>
+        <p class="text-body text-sm mt-1">of callers who reach voicemail hang up without leaving a message.</p>
+      </div>
+      <div class="card p-6">
+        <div class="display text-3xl">83%</div>
+        <p class="text-body text-sm mt-1">of U.S. consumers choose the business that responds first.</p>
+      </div>
+      <p class="text-[11px] text-muted">Sources: Moneypenny call analysis of 10,000 businesses (2016); Moneypenny survey of 2,000 U.S. consumers (2026).</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="section bg-soft border-t border-line">
+  <div class="max-w-3xl mx-auto text-center">
+    <span class="kicker">Pricing</span>
+    <h2 class="display text-[1.9rem] md:text-[2.4rem] mt-3 leading-[1.15]">$497 setup. $297 a month.</h2>
+    <p class="text-body mt-4 leading-relaxed">We build her on your services, prices, hours and service area within 48 hours. You call her and approve her before she takes a single live call. Keep your number. Month to month, unlimited calls (fair use), cancel anytime.</p>
+    <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+      <a href="https://cal.com/a26localleadco/a26-local-lead-co-demo-call" target="_blank" rel="noopener" class="btn-primary !text-[1rem] !px-5 !py-3.5">Book a 20-minute call</a>
+      <a href="https://buy.stripe.com/28E00jc6T9lv2Gs4BXgUM08" target="_blank" rel="noopener" class="btn-secondary !text-[1rem] !px-5 !py-3.5">Get started</a>
+    </div>
+  </div>
+</section>
+
+<footer class="border-t border-line bg-white py-10 px-6">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-sm">
+    <a href="/" class="flex items-center gap-2.5">
+      <svg class="brand-mark" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="6" fill="#0a0a0a"/>
+        <circle cx="12" cy="12" r="2.6" fill="#ff5a1f"/>
+        <circle cx="12" cy="12" r="5.5" stroke="#ff5a1f" stroke-width="1" fill="none" opacity="0.5"/>
+      </svg>
+      <span class="wordmark">
+        <span class="wordmark-primary">a26</span>
+        <span class="wordmark-secondary">Local Lead Co</span>
+      </span>
+    </a>
+    <div class="flex flex-wrap items-center gap-x-5 gap-y-1 text-body">
+      <a href="/privacy" class="hover:text-ink transition">Privacy</a>
+      <a href="/terms" class="hover:text-ink transition">Terms</a>
+      <a href="mailto:team@a26locallead.co" class="hover:text-ink transition">team@a26locallead.co</a>
+    </div>
+  </div>
+  <div class="max-w-6xl mx-auto mt-6 pt-6 border-t border-line text-xs text-muted leading-relaxed">
+    Bluestem Heating &amp; Air is a fictional company used only to demonstrate the a26 AI receptionist. It does not provide heating or cooling service, and no technician will be sent. Example caller details are made up. &copy; 2026 a26 Local Lead Co.
+  </div>
+</footer>
+
+<script>
+  // Swap the demo line here once the number is live. Leave tel empty to show the fallback.
+  var DEMO_LINE = { display: '', tel: '' };
+  (function () {
+    var btn = document.getElementById('demoCallBtn');
+    var label = document.getElementById('demoCallLabel');
+    var note = document.getElementById('demoNote');
+    if (DEMO_LINE.tel) {
+      btn.href = 'tel:' + DEMO_LINE.tel;
+      label.textContent = 'Call ' + DEMO_LINE.display;
+      note.textContent = 'Answers 24/7. Calls are recorded for the demo.';
+    } else {
+      btn.href = 'tel:+17738303540';
+      label.textContent = 'Call (773) 830-3540';
+      note.textContent = 'The Bluestem HVAC line opens shortly. Until then, this number reaches Casey, our general demo receptionist.';
+    }
+  })();
+</script>
+</body>
+</html>
