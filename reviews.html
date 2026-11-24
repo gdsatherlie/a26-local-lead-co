@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2YYR3BLK3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2YYR3BLK3G');
+</script>
+<!-- Apollo website visitor tracking -->
+<script>function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,o.onload=function(){window.trackingFunctions.onLoad({appId:"6a2478d1832f4c001cfccc84"})},document.head.appendChild(o)}initApollo();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Reviews, Done for You | a26 Local Lead Co</title>
+<meta name="description" content="More 5-star Google reviews for local service businesses. After every job, your customer gets a text with a one-tap review link. $297/month, no setup fee, no contract.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230a0a0a'/%3E%3Ccircle cx='50' cy='50' r='12' fill='%23ff5a1f'/%3E%3Ccircle cx='50' cy='50' r='24' stroke='%23ff5a1f' stroke-width='3' fill='none' opacity='0.5'/%3E%3C/svg%3E">
+<link rel="canonical" href="https://a26locallead.co/reviews">
+<meta property="og:title" content="Google reviews, done for you">
+<meta property="og:description" content="After every job, your customer gets a text with a one-tap link to review you on Google. $297/month, no setup fee.">
+<meta property="og:url" content="https://a26locallead.co/reviews">
+<meta property="og:image" content="https://a26locallead.co/og.svg">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #ff5a1f;
+    --accent-soft: #fff5f0;
+    --ink: #0a0a0a;
+    --body: #57534e;
+    --muted: #78716c;
+    --line: #e7e5e4;
+    --line-soft: #f5f5f4;
+    --bg: #ffffff;
+    --bg-soft: #fafaf9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: var(--body);
+    background: var(--bg);
+    font-feature-settings: 'cv11', 'ss01';
+  }
+  .text-ink { color: var(--ink); }
+  .text-body { color: var(--body); }
+  .text-muted { color: var(--muted); }
+  .accent { color: var(--accent); }
+  .bg-accent { background: var(--accent); }
+  .bg-accent-soft { background: var(--accent-soft); }
+  .border-line { border-color: var(--line); }
+  .bg-soft { background: var(--bg-soft); }
+
+  .hero-glow {
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(900px circle at 75% -10%, rgba(255, 90, 31, 0.14), transparent 50%),
+      radial-gradient(700px circle at 0% 30%, rgba(255, 90, 31, 0.06), transparent 50%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(to right, rgba(0,0,0,0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.035) 1px, transparent 1px);
+    background-size: 44px 44px;
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+
+  .pill {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.4rem 0.85rem;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 9999px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--ink);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+  }
+  .pill .dot {
+    width: 6px; height: 6px; border-radius: 9999px;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px rgba(255, 90, 31, 0.18);
+  }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem;
+    padding: 0.7rem 1.15rem;
+    background: var(--ink);
+    color: white;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border-radius: 0.55rem;
+    transition: background 0.2s, transform 0.2s;
+    line-height: 1;
+  }
+  .btn-primary:hover { background: #1c1917; transform: translateY(-1px); }
+
+  .btn-secondary {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem;
+    padding: 0.7rem 1.15rem;
+    background: white;
+    color: var(--ink);
+    font-weight: 500;
+    font-size: 0.9rem;
+    border: 1px solid var(--line);
+    border-radius: 0.55rem;
+    transition: background 0.2s, border-color 0.2s;
+    line-height: 1;
+  }
+  .btn-secondary:hover { background: var(--bg-soft); border-color: #d6d3d1; }
+
+  .card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 0.875rem;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover { border-color: #a8a29e; transform: translateY(-2px); box-shadow: 0 4px 14px rgba(0,0,0,0.04); }
+
+  .section { padding: 6rem 1.5rem; }
+  @media (max-width: 768px) { .section { padding: 4rem 1.25rem; } }
+
+  .kicker {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .display {
+    letter-spacing: -0.025em;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .brand-mark {
+    width: 1.6rem; height: 1.6rem;
+    flex-shrink: 0;
+    display: block;
+  }
+  .wordmark {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    line-height: 1;
+  }
+  .wordmark-primary {
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+  .wordmark-secondary {
+    font-weight: 500;
+    color: var(--muted);
+    font-size: 0.78em;
+    letter-spacing: 0.005em;
+  }
+  @media (max-width: 480px) {
+    .wordmark-secondary { display: none; }
+  }
+
+  html { scroll-behavior: smooth; }
+  section[id] { scroll-margin-top: 80px; }
+
+  /* Sticky scroll CTA */
+  .sticky-cta {
+    position: fixed;
+    bottom: 18px;
+    left: 50%;
+    transform: translate(-50%, 120%);
+    width: calc(100% - 32px);
+    max-width: 520px;
+    z-index: 999;
+    background: var(--ink);
+    color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18), 0 2px 6px rgba(0,0,0,0.08);
+    opacity: 0;
+    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.32s ease-out;
+    pointer-events: none;
+  }
+  .sticky-cta.sticky-cta-visible {
+    transform: translate(-50%, 0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .sticky-cta-content {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.7rem 0.7rem 0.7rem 1rem;
+  }
+  .sticky-cta-text {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+  }
+  .sticky-cta-text strong {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: white;
+    letter-spacing: -0.005em;
+  }
+  .sticky-cta-text span {
+    font-size: 0.74rem;
+    color: rgba(255,255,255,0.65);
+    margin-top: 0.1rem;
+  }
+  .sticky-cta-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 0.55rem 0.85rem;
+    background: var(--accent);
+    color: white;
+    font-weight: 500;
+    font-size: 0.82rem;
+    border-radius: 0.5rem;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.2s;
+    line-height: 1;
+  }
+  .sticky-cta-btn:hover { background: #e64f17; transform: translateY(-1px); }
+  .sticky-cta-close {
+    width: 28px; height: 28px;
+    border-radius: 9999px;
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.6);
+    font-size: 1.1rem;
+    line-height: 1;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: background 0.2s, color 0.2s;
+    flex-shrink: 0;
+  }
+  .sticky-cta-close:hover { background: rgba(255,255,255,0.16); color: white; }
+  @media (max-width: 640px) {
+    .sticky-cta-text span { display: none; }
+    .sticky-cta-text strong { font-size: 0.8rem; }
+    .sticky-cta-btn { font-size: 0.75rem; padding: 0.5rem 0.65rem; }
+    .sticky-cta {
+      left: 16px;
+      transform: translate(0, 120%);
+      max-width: calc(100% - 100px); /* leave room for chat bubble at bottom-right */
+    }
+    .sticky-cta.sticky-cta-visible { transform: translate(0, 0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sticky-cta { transition: opacity 0.2s ease-out; }
+  }
+
+  /* Trust signals */
+  .trust-mark {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #78716c;
+    letter-spacing: -0.005em;
+    transition: color 0.2s;
+  }
+  .trust-mark:hover { color: var(--ink); }
+  .trust-dot {
+    width: 4px; height: 4px;
+    border-radius: 9999px;
+    background: var(--line);
+    flex-shrink: 0;
+  }
+  @media (max-width: 640px) {
+    .trust-dot { display: none; }
+  }
+
+  /* Comparison grid */
+  .compare-grid { background: white; }
+  .compare-row {
+    display: grid;
+    grid-template-columns: 2fr 1.2fr 1fr 1fr 1fr;
+    border-bottom: 1px solid var(--line);
+  }
+  .compare-row.compare-last { border-bottom: none; }
+  .compare-row.compare-header {
+    background: var(--bg-soft);
+  }
+  .compare-cell {
+    padding: 1rem 0.9rem;
+    font-size: 0.9rem;
+    color: var(--body);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-right: 1px solid var(--line);
+  }
+  .compare-cell:last-child { border-right: none; }
+  .compare-cell.compare-feature {
+    font-weight: 500;
+    color: var(--ink);
+    text-align: left;
+    align-items: flex-start;
+    font-size: 0.85rem;
+    line-height: 1.35;
+  }
+  .compare-cell.compare-us {
+    background: var(--accent-soft);
+    border-right: 1px solid #fde2d0;
+  }
+  .check-yes {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 26px; height: 26px;
+    border-radius: 9999px;
+    background: var(--accent);
+    color: white;
+    font-weight: 700;
+    font-size: 0.85rem;
+    line-height: 1;
+  }
+  .check-no {
+    color: #d6d3d1;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  .check-partial {
+    font-size: 0.72rem;
+    color: var(--muted);
+    line-height: 1.25;
+    text-align: center;
+  }
+  @media (max-width: 768px) {
+    .compare-row {
+      grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr;
+    }
+    .compare-cell { padding: 0.7rem 0.4rem; font-size: 0.78rem; }
+    .compare-cell.compare-feature { font-size: 0.75rem; }
+    .check-yes { width: 20px; height: 20px; font-size: 0.7rem; }
+  }
+
+  .fade-in { opacity: 0; transform: translateY(8px); transition: opacity 0.4s ease-out, transform 0.4s ease-out; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  input:focus, textarea:focus { box-shadow: 0 0 0 3px rgba(255, 90, 31, 0.15); border-color: var(--accent) !important; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fade-in { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+    .btn-primary:hover { transform: none; }
+  }
+</style>
+</head>
+
+<body>
+
+<nav class="sticky top-0 z-50 backdrop-blur-md bg-white/75 border-b border-stone-100">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2.5">
+      <svg class="brand-mark" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="6" fill="#0a0a0a"/>
+        <circle cx="12" cy="12" r="2.6" fill="#ff5a1f"/>
+        <circle cx="12" cy="12" r="5.5" stroke="#ff5a1f" stroke-width="1" fill="none" opacity="0.5"/>
+      </svg>
+      <span class="wordmark text-[15px]">
+        <span class="wordmark-primary">a26</span>
+        <span class="wordmark-secondary">Local Lead Co</span>
+      </span>
+    </a>
+    <div class="flex items-center gap-5 text-sm text-body">
+      <a href="#included" class="hidden md:inline hover:text-ink transition">What's included</a>
+      <a href="#pricing" class="hidden md:inline hover:text-ink transition">Pricing</a>
+      <a href="/" class="hidden md:inline hover:text-ink transition">AI receptionist</a>
+      <a href="/plans" class="hidden md:inline hover:text-ink transition">All plans</a>
+      <a href="https://cal.com/a26localleadco/a26-local-lead-co-demo-call" target="_blank" rel="noopener" class="btn-primary !py-1.5 !px-3.5 !text-[13px]">Book a call</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="relative overflow-hidden border-b border-line">
+  <div class="hero-glow"></div>
+  <div class="hero-grid"></div>
+  <div class="relative max-w-5xl mx-auto px-6 pt-20 pb-20 md:pt-28 md:pb-28 text-center">
+    <span class="kicker">Google reviews, done for you</span>
+    <h1 class="display text-[2.4rem] md:text-[3.75rem] leading-[1.05] mt-4 mb-6 max-w-3xl mx-auto">
+      The shop with more reviews <span class="accent">gets the call.</span>
+    </h1>
+    <p class="text-[1.05rem] md:text-[1.15rem] text-body leading-relaxed max-w-2xl mx-auto mb-9">
+      After every job, your customer gets a friendly text from your business with a one-tap link to review you on Google. You stop having to remember to ask, and your review count keeps climbing. $297 a month. No setup fee. No contract.
+    </p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+      <a href="/#contact" class="btn-primary">Get my free review report <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+      <a href="#pricing" class="btn-secondary">See pricing</a>
+    </div>
+    <p class="mt-7 text-xs text-muted">Free report: your reviews and rating next to the top three shops near you. No commitment.</p>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section bg-soft border-b border-line">
+  <div class="max-w-3xl mx-auto text-center fade-in">
+    <span class="kicker">Why it matters</span>
+    <h2 class="display text-[2rem] md:text-[2.5rem] mt-3 mb-8 leading-[1.15]">
+      Your customers are happy.<br>They just don't think to say so.
+    </h2>
+    <div class="space-y-5 text-body leading-relaxed text-[1.02rem] text-left md:text-center">
+      <p>When someone searches for help nearby, they see the map first: names, stars, and review counts. The shop with 300 reviews looks safer than the one with 30, even if your work is better. And Google says review count and rating are part of how it ranks local businesses.</p>
+      <p>Most happy customers would leave a review if someone asked at the right moment. Nobody asks, because you're already on the next job. We ask for you, every time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section id="how" class="section">
+  <div class="max-w-6xl mx-auto">
+    <div class="max-w-2xl mx-auto text-center mb-14 fade-in">
+      <span class="kicker">How it works</span>
+      <h2 class="display text-[2rem] md:text-[2.5rem] mt-3 leading-[1.15]">Two minutes from you. The rest is on us.</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div class="card p-7 fade-in">
+        <div class="w-9 h-9 rounded-full border border-line bg-white flex items-center justify-center text-sm font-semibold text-ink mb-5">1</div>
+        <h3 class="text-[1rem] font-semibold text-ink mb-2">We set you up</h3>
+        <p class="text-body text-sm leading-relaxed">We tune up your Google Business Profile (categories, services, hours, photos) and create your direct review link and the message your customers will get.</p>
+      </div>
+      <div class="card p-7 fade-in">
+        <div class="w-9 h-9 rounded-full border border-line bg-white flex items-center justify-center text-sm font-semibold text-ink mb-5">2</div>
+        <h3 class="text-[1rem] font-semibold text-ink mb-2">You finish a job</h3>
+        <p class="text-body text-sm leading-relaxed">Text us the customer's name and number when the job's done, or send a list at the end of the week. That's your whole part.</p>
+      </div>
+      <div class="card p-7 fade-in">
+        <div class="w-9 h-9 rounded-full border border-line bg-white flex items-center justify-center text-sm font-semibold text-ink mb-5">3</div>
+        <h3 class="text-[1rem] font-semibold text-ink mb-2">They get a one-tap ask</h3>
+        <p class="text-body text-sm leading-relaxed">A short, personal text from your business with your review link. One reminder a few days later. If they reply with a problem, it comes straight to you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INCLUDED -->
+<section id="included" class="section bg-soft border-y border-line">
+  <div class="max-w-6xl mx-auto">
+    <div class="max-w-2xl mx-auto text-center mb-14 fade-in">
+      <span class="kicker">What's included</span>
+      <h2 class="display text-[2rem] md:text-[2.5rem] mt-3 mb-4 leading-[1.15]">Everything it takes to grow your reviews.</h2>
+      <p class="text-sm md:text-base text-muted leading-relaxed">One flat price. No per-text fees, no tiers.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div class="card p-7 fade-in">
+        <div class="flex items-center gap-3 mb-4"><span class="text-[0.7rem] font-semibold accent tracking-widest">01</span><div class="h-px flex-1 bg-line"></div></div>
+        <h3 class="text-[1.05rem] font-semibold text-ink mb-2">Review requests sent for you</h3>
+        <p class="text-body text-sm leading-relaxed">A text from your business name after every job, with a direct link to your Google review page. Email too, if you have their address.</p>
+      </div>
+      <div class="card p-7 fade-in">
+        <div class="flex items-center gap-3 mb-4"><span class="text-[0.7rem] font-semibold accent tracking-widest">02</span><div class="h-px flex-1 bg-line"></div></div>
+        <h3 class="text-[1.05rem] font-semibold text-ink mb-2">One polite reminder</h3>
+        <p class="text-body text-sm leading-relaxed">Customers who haven't left a review get one follow-up a few days later. Never more than that, and STOP always works.</p>
+      </div>
+      <div class="card p-7 fade-in">
+        <div class="flex items-center gap-3 mb-4"><span class="text-[0.7rem] font-semibold accent tracking-widest">03</span><div class="h-px flex-1 bg-line"></div></div>
+        <h3 class="text-[1.05rem] font-semibold text-ink mb-2">Problems come to you first</h3>
+        <p class="text-body text-sm leading-relaxed">If a customer replies with a complaint, we forward it to you right away, so you can make it right while it's still a private conversation.</p>
+      </div>
+      <div class="card p-7 fade-in">
+        <div class="flex items-center gap-3 mb-4"><span class="text-[0.7rem] font-semibold accent tracking-widest">04</span><div class="h-px flex-1 bg-line"></div></div>
+        <h3 class="text-[1.05rem] font-semibold text-ink mb-2">Replies to your reviews</h3>
+        <p class="text-body text-sm leading-relaxed">We draft a response to every new review, good or bad, in your voice. You approve it, or let us post them for you.</p>
+      </div>
+      <div class="card p-7 fade-in">
+        <div class="flex items-center gap-3 mb-4"><span class="text-[0.7rem] font-semibold accent tracking-widest">05</span><div class="h-px flex-1 bg-line"></div></div>
+        <h3 class="text-[1.05rem] font-semibold text-ink mb-2">Google Business Profile tune-up</h3>
+        <p class="text-body text-sm leading-relaxed">Correct categories, services, service area, hours and photos, so the people who find you see a complete, active business.</p>
+      </div>
+      <div class="card p-7 fade-in">
+        <div class="flex items-center gap-3 mb-4"><span class="text-[0.7rem] font-semibold accent tracking-widest">06</span><div class="h-px flex-1 bg-line"></div></div>
+        <h3 class="text-[1.05rem] font-semibold text-ink mb-2">Monthly report</h3>
+        <p class="text-body text-sm leading-relaxed">New reviews, your rating, and how you stack up against the top three shops near you. One email, once a month.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RULES -->
+<section class="section">
+  <div class="max-w-3xl mx-auto fade-in">
+    <span class="kicker">Done by the rules</span>
+    <h2 class="display text-[2rem] md:text-[2.5rem] mt-3 mb-10 leading-[1.15]">Real reviews from real customers.<br>Nothing that could get you flagged.</h2>
+    <div class="space-y-4">
+      <div class="flex gap-3 items-start">
+        <div class="w-5 h-5 rounded-full bg-accent flex-shrink-0 mt-0.5 flex items-center justify-center"><svg width="11" height="11" fill="none" stroke="white" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+        <p class="text-body"><span class="text-ink font-medium">Every customer gets the same ask.</span> We don't screen out unhappy customers before asking. Google doesn't allow it, and it doesn't work.</p>
+      </div>
+      <div class="flex gap-3 items-start">
+        <div class="w-5 h-5 rounded-full bg-accent flex-shrink-0 mt-0.5 flex items-center justify-center"><svg width="11" height="11" fill="none" stroke="white" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+        <p class="text-body"><span class="text-ink font-medium">No fake or paid reviews.</span> We never write, buy, or reward reviews. Every review comes from someone who actually hired you.</p>
+      </div>
+      <div class="flex gap-3 items-start">
+        <div class="w-5 h-5 rounded-full bg-accent flex-shrink-0 mt-0.5 flex items-center justify-center"><svg width="11" height="11" fill="none" stroke="white" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+        <p class="text-body"><span class="text-ink font-medium">Your profile, your access.</span> You add us as a manager on your Google profile and can remove us anytime. We never take ownership.</p>
+      </div>
+      <div class="flex gap-3 items-start">
+        <div class="w-5 h-5 rounded-full bg-accent flex-shrink-0 mt-0.5 flex items-center justify-center"><svg width="11" height="11" fill="none" stroke="white" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+        <p class="text-body"><span class="text-ink font-medium">Month to month.</span> No contract. If your reviews aren't growing, cancel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUNDLE -->
+<section class="section bg-soft border-y border-line">
+  <div class="max-w-3xl mx-auto fade-in rounded-[0.875rem] p-8 md:p-10" style="background:#0a0a0a;">
+    <div class="text-[0.72rem] font-semibold tracking-[0.1em] uppercase" style="color:#ff5a1f;">Better together</div>
+    <h3 class="display text-[1.6rem] md:text-[2rem] mt-3 leading-[1.15]" style="color:#ffffff;">More reviews bring more calls.<br>Make sure every one gets answered.</h3>
+    <p class="text-[0.95rem] leading-relaxed mt-4 max-w-xl" style="color:#d6d3d1;">Pair Google Reviews with our AI receptionist, which answers every call 24/7, books the job, and texts you the lead. Both for $497 a month plus a $497 one-time setup, saving you $97 a month.</p>
+    <div class="mt-7 flex flex-col sm:flex-row gap-3">
+      <a href="/" class="inline-flex items-center justify-center gap-2 rounded-[0.55rem] px-5 py-3.5 font-medium text-[1rem]" style="background:#ff5a1f;color:#ffffff;">See the AI receptionist <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+      <a href="tel:+14633484582" class="inline-flex items-center justify-center rounded-[0.55rem] px-5 py-3.5 font-medium text-[1rem]" style="border:1px solid #44403c;color:#ffffff;">Hear a demo: (463) 348-4582</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="section">
+  <div class="max-w-5xl mx-auto">
+    <div class="max-w-2xl mx-auto text-center mb-12 fade-in">
+      <span class="kicker">Pricing</span>
+      <h2 class="display text-[2rem] md:text-[2.5rem] mt-3 leading-[1.15]">Simple, flat, month to month.</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div class="card p-8 fade-in">
+        <div class="text-sm font-semibold text-ink">Google Reviews</div>
+        <div class="display text-[2.4rem] mt-2 leading-none">$297<span class="text-base text-muted font-normal">/mo</span></div>
+        <p class="text-sm text-muted mt-2">No setup fee. Cancel anytime.</p>
+        <p class="text-body text-sm leading-relaxed mt-5">Review requests and reminders after every job, complaint routing, review replies, Google profile tune-up, and a monthly report.</p>
+        <a href="https://cal.com/a26localleadco/a26-local-lead-co-demo-call" target="_blank" rel="noopener" class="btn-primary w-full mt-7">Book a 20-minute call</a>
+      </div>
+      <div class="card p-8 fade-in" style="border-color:#ff5a1f;">
+        <div class="text-sm font-semibold text-ink">Reviews + AI Receptionist <span class="accent text-xs font-semibold ml-1">Save $97/mo</span></div>
+        <div class="display text-[2.4rem] mt-2 leading-none">$497<span class="text-base text-muted font-normal">/mo</span></div>
+        <p class="text-sm text-muted mt-2">Plus $497 one-time setup. Cancel anytime.</p>
+        <p class="text-body text-sm leading-relaxed mt-5">Everything in Google Reviews, plus a receptionist that answers every call 24/7, books jobs on your calendar, and texts you every lead.</p>
+        <a href="https://cal.com/a26localleadco/a26-local-lead-co-demo-call" target="_blank" rel="noopener" class="btn-primary w-full mt-7">Book a 20-minute call</a>
+      </div>
+    </div>
+    <p class="text-sm text-muted text-center mt-6">Want local SEO or Google ads managed too? <a href="/plans" class="accent font-medium">See all plans</a>.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section bg-soft border-t border-line">
+  <div class="max-w-6xl mx-auto">
+    <div class="max-w-2xl mx-auto text-center mb-14 fade-in">
+      <span class="kicker">Questions</span>
+      <h2 class="display text-[2rem] md:text-[2.5rem] mt-3 leading-[1.15]">Fair questions, straight answers.</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div class="card p-7 fade-in">
+        <h3 class="text-[1.05rem] font-semibold text-ink mb-2">Is this allowed by Google?</h3>
+        <p class="text-body text-sm leading-relaxed">Yes. Google encourages businesses to ask customers for reviews. What it doesn't allow is fake reviews, paying or rewarding people for reviews, or only asking the customers you expect to be happy. We don't do any of those.</p>
+      </div>
+      <div class="card p-7 fade-in">
+        <h3 class="text-[1.05rem] font-semibold text-ink mb-2">Will my customers feel spammed?</h3>
+        <p class="text-body text-sm leading-relaxed">Each customer gets one request and at most one reminder, from your business name, worded like a note from you. Anyone can reply STOP.</p>
+      </div>
+      <div class="card p-7 fade-in">
+        <h3 class="text-[1.05rem] font-semibold text-ink mb-2">What do I need to do?</h3>
+        <p class="text-body text-sm leading-relaxed">Add us as a manager on your Google Business Profile (about two minutes, we walk you through it), then send us customer names and numbers as jobs finish.</p>
+      </div>
+      <div class="card p-7 fade-in">
+        <h3 class="text-[1.05rem] font-semibold text-ink mb-2">How fast does it start?</h3>
+        <p class="text-body text-sm leading-relaxed">Email requests can start within a few days. Texts switch on once carrier registration clears, typically one to three weeks. That's a phone-industry rule, and we file it on day one.</p>
+      </div>
+      <div class="card p-7 fade-in">
+        <h3 class="text-[1.05rem] font-semibold text-ink mb-2">Do you guarantee a number of reviews?</h3>
+        <p class="text-body text-sm leading-relaxed">No one honestly can. Google decides what shows. What we guarantee is that every customer you send us gets asked, every time, and that you'll see the results in your monthly report.</p>
+      </div>
+      <div class="card p-7 fade-in">
+        <h3 class="text-[1.05rem] font-semibold text-ink mb-2">Is there a contract?</h3>
+        <p class="text-body text-sm leading-relaxed">No. Month to month. If it isn't working, cancel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section border-t border-line relative overflow-hidden">
+  <div class="hero-glow"></div>
+  <div class="relative max-w-3xl mx-auto text-center fade-in">
+    <h2 class="display text-[2.1rem] md:text-[2.75rem] leading-[1.1] mb-5">See where you stand.</h2>
+    <p class="text-body leading-relaxed mb-8 max-w-xl mx-auto">Tell us your business and we'll send a free report: your reviews and rating next to the top three shops near you, and how long it would take to close the gap.</p>
+    <a href="/#contact" class="btn-primary">Get my free review report <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+  </div>
+</section>
+
+<footer class="border-t border-line bg-white py-10 px-6">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-sm">
+    <a href="/" class="flex items-center gap-2.5">
+      <svg class="brand-mark" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="6" fill="#0a0a0a"/>
+        <circle cx="12" cy="12" r="2.6" fill="#ff5a1f"/>
+        <circle cx="12" cy="12" r="5.5" stroke="#ff5a1f" stroke-width="1" fill="none" opacity="0.5"/>
+      </svg>
+      <span class="wordmark">
+        <span class="wordmark-primary">a26</span>
+        <span class="wordmark-secondary">Local Lead Co</span>
+      </span>
+    </a>
+    <div class="text-muted">Reviews, receptionist and Google ads for local service businesses.</div>
+    <div class="flex flex-wrap items-center gap-x-5 gap-y-1 text-body">
+      <a href="/privacy" class="hover:text-ink transition">Privacy</a>
+      <a href="/terms" class="hover:text-ink transition">Terms</a>
+      <a href="mailto:team@a26locallead.co" class="hover:text-ink transition">team@a26locallead.co</a>
+    </div>
+  </div>
+  <div class="max-w-6xl mx-auto mt-6 pt-6 border-t border-line text-xs text-muted">&copy; 2026 a26 Local Lead Co. All rights reserved.</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
