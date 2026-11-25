@@ -21,6 +21,14 @@ async function logLead(payload) {
 
 const BUSY = "You've reached today's limit for instant audits. We have your details and will email your full report within one business day.";
 
+// Internal runs (a26 staff building call sheets): no visitor limit, no prospect
+// email, no follow-ups, no lead alert. Only the SHA-256 of the token is stored here.
+const INTERNAL_HASH = 'ee5c36a5fcc4ff9d37eaa81a91ee61a4196e4e24402ffdee54a56d587020e867';
+const isInternal = (req) => {
+  const t = String(req.headers['x-a26-internal'] || '');
+  return !!t && require('crypto').createHash('sha256').update(t).digest('hex') === INTERNAL_HASH;
+};
+
 const settle = (p) => p.then((v) => ({ ok: true, v })).catch((e) => ({ ok: false, e: String(e.message || e) }));
 
 module.exports = async (req, res) => {
@@ -58,10 +66,11 @@ module.exports = async (req, res) => {
   let host = '';
   try { host = new URL(website).hostname.replace(/^www\./, ''); } catch {}
 
-  const hit = limit.cached(host);
+  const internal = isInternal(req);
+  const hit = internal ? null : limit.cached(host);
   if (hit) return res.status(200).json({ ...hit, cached: true });
 
-  const blocked = await limit.takeDurable(limit.clientIp(req));
+  const blocked = internal ? null : await limit.takeDurable(limit.clientIp(req));
   if (blocked) {
     await logLead({ ...contact, biggest_pain: `AI audit (rate-limited: ${blocked}) - send report manually`, about: `Website: ${website} | City: ${city} | Trade: ${trade}`, source: 'a26locallead.co/audit' });
     return res.status(429).json({ error: BUSY, limited: blocked });
@@ -105,12 +114,12 @@ module.exports = async (req, res) => {
     if (rid) {
       report.reportId = rid;
       report.reportUrl = `https://a26locallead.co/audit?r=${rid}`;
-      if (contact.email) await addLead(rid, contact.email).catch(() => {});
+      if (contact.email && !internal) await addLead(rid, contact.email).catch(() => {});
     }
   } catch {}
 
   // Lead notification (existing Make scenario → sheet row + email alert).
-  await logLead({
+  if (!internal) await logLead({
     ...contact,
     biggest_pain: `AI audit: ${scored.overall}/100 (${scored.overallGrade}) → ${scored.plan.name}`,
     about: `Website: ${website} | City: ${city} | Reviews: ${facts.google?.business?.reviews ?? '?'} | Map rank: ${facts.google?.searchRank ?? 'not top 20'} | Leader: ${scored.leader ? scored.leader.name + ' (' + scored.leader.reviews + ')' : '-'} | ${copy.headline}`,
@@ -122,6 +131,6 @@ module.exports = async (req, res) => {
     fix1: (copy.fixes && copy.fixes[0] && copy.fixes[0].title) || '',
   });
 
-  if (gR.ok && copy.ai) limit.remember(host, report);
+  if (gR.ok && copy.ai && !internal) limit.remember(host, report);
   return res.status(200).json(report);
 };
