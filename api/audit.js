@@ -60,7 +60,7 @@ module.exports = async (req, res) => {
     facts,
     scored,
     copy,
-    checks: { google: gR.ok, speed: speedR.ok, site: !!facts.site.reachable, ai: !!copy.ai },
+    checks: { google: gR.ok, speed: speedR.ok, site: !!facts.site.reachable, ai: !!copy.ai, aiKey: !!process.env.ANTHROPIC_API_KEY, aiError: copy.aiError ? String(copy.aiError).slice(0, 120) : undefined },
     ms: Date.now() - t0,
   };
 
