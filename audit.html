@@ -438,10 +438,11 @@
 <!-- REPORT -->
 <section id="report" class="py-10 md:py-14 px-4" style="display:none">
   <div id="sheet" class="max-w-[820px] mx-auto bg-white border border-line rounded-2xl p-7 md:p-10 shadow-sm"></div>
+  <p id="shareLine" class="max-w-[820px] mx-auto text-center text-sm text-muted mt-5 no-print" style="display:none">Your report link: <a id="shareLink" class="text-ink underline break-all" href="#"></a><button id="copyLink" type="button" class="ml-2 text-ink underline">Copy</button></p>
   <div class="max-w-[820px] mx-auto flex flex-col sm:flex-row gap-3 justify-center mt-6 no-print">
     <a href="https://cal.com/a26localleadco/a26-local-lead-co-demo-call" target="_blank" rel="noopener" class="btn-primary">Book a 20-minute call to walk through it</a>
     <button onclick="window.print()" class="btn-secondary">Save as PDF</button>
-    <button onclick="location.reload()" class="btn-secondary">Run another audit</button>
+    <button onclick="location.href='/audit'" class="btn-secondary">Run another audit</button>
   </div>
 </section>
 
@@ -573,6 +574,7 @@ document.getElementById('auditForm').addEventListener('submit', async e=>{
     if(!res.ok||j.error) throw new Error(j.error||'Something went wrong');
     clearInterval(timer);
     render(j);
+    showShare(j);
     document.getElementById('progress').style.display='none';
     document.getElementById('report').style.display='block';
     window.scrollTo(0,0);
@@ -584,6 +586,34 @@ document.getElementById('auditForm').addEventListener('submit', async e=>{
     const fe=document.getElementById('formError'); fe.textContent=err.limited?err.message:err.message+'. Please check the details and try again, or email team@a26locallead.co.'; fe.style.display='block';
   }
 });
+function showShare(j){
+  if(!j.reportId) return;
+  const url='https://a26locallead.co/audit?r='+j.reportId;
+  try{ history.replaceState(null,'','/audit?r='+j.reportId); }catch(_){}
+  const a=document.getElementById('shareLink'); a.href=url; a.textContent=url;
+  document.getElementById('shareLine').style.display='block';
+  document.getElementById('copyLink').onclick=()=>{ try{ navigator.clipboard.writeText(url); document.getElementById('copyLink').textContent='Copied'; }catch(_){} };
+}
+
+// Saved report: /audit?r=<id>
+(async()=>{
+  const id=new URLSearchParams(location.search).get('r');
+  if(!id||!/^[a-z0-9]{20}$/.test(id)) return;
+  document.getElementById('start').style.display='none';
+  document.getElementById('progress').style.display='block';
+  document.getElementById('steps').innerHTML='<li class="text-body">Loading your report…</li>';
+  try{
+    const res=await fetch('/api/report?id='+id); const j=await res.json();
+    if(!res.ok||j.error) throw new Error(j.error||'Could not load the report');
+    render(j); j.reportId=id; showShare(j);
+    document.getElementById('progress').style.display='none';
+    document.getElementById('report').style.display='block';
+  }catch(err){
+    document.getElementById('progress').style.display='none';
+    document.getElementById('start').style.display='block';
+    const fe=document.getElementById('formError'); fe.textContent=err.message+'. You can run a new audit below.'; fe.style.display='block';
+  }
+})();
 window.__renderAudit=render;
 </script>
 </body>
