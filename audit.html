@@ -569,6 +569,7 @@ document.getElementById('auditForm').addEventListener('submit', async e=>{
   try{
     const res=await fetch('/api/audit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
     const j=await res.json();
+    if(j.limited){ const e=new Error(j.error); e.limited=true; throw e; }
     if(!res.ok||j.error) throw new Error(j.error||'Something went wrong');
     clearInterval(timer);
     render(j);
@@ -580,7 +581,7 @@ document.getElementById('auditForm').addEventListener('submit', async e=>{
     clearInterval(timer);
     document.getElementById('progress').style.display='none';
     document.getElementById('start').style.display='block';
-    const fe=document.getElementById('formError'); fe.textContent=err.message+'. Please check the details and try again, or email team@a26locallead.co.'; fe.style.display='block';
+    const fe=document.getElementById('formError'); fe.textContent=err.limited?err.message:err.message+'. Please check the details and try again, or email team@a26locallead.co.'; fe.style.display='block';
   }
 });
 window.__renderAudit=render;
