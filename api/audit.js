@@ -5,8 +5,20 @@ const { analyzeSite, normalizeUrl } = require('../lib/site');
 const { googleFacts, pageSpeed } = require('../lib/google');
 const { scoreAudit } = require('../lib/score');
 const { writeUp } = require('../lib/writeup');
+const limit = require('../lib/limit');
 
 const WEBHOOK = process.env.LEAD_WEBHOOK_URL || 'https://hook.us2.make.com/j1gpuwj5vyp0rsfoadnfco9nkeh6yltc';
+
+async function logLead(payload) {
+  try {
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), 4000);
+    await fetch(WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/json' }, signal: ctrl.signal, body: JSON.stringify(payload) });
+    clearTimeout(t);
+  } catch {}
+}
+
+const BUSY = "You've reached today's limit for instant audits. We have your details and will email your full report within one business day.";
 
 const settle = (p) => p.then((v) => ({ ok: true, v })).catch((e) => ({ ok: false, e: String(e.message || e) }));
 
@@ -36,6 +48,24 @@ module.exports = async (req, res) => {
   }
   if (!business || !city) return res.status(400).json({ error: 'Please enter your business name and city.' });
 
+  const contact = {
+    name: String(body.name || '').slice(0, 80),
+    business,
+    email: String(body.email || '').slice(0, 120),
+    phone: String(body.phone || '').slice(0, 40),
+  };
+  let host = '';
+  try { host = new URL(website).hostname.replace(/^www\./, ''); } catch {}
+
+  const hit = limit.cached(host);
+  if (hit) return res.status(200).json({ ...hit, cached: true });
+
+  const blocked = limit.take(limit.clientIp(req));
+  if (blocked) {
+    await logLead({ ...contact, biggest_pain: `AI audit (rate-limited: ${blocked}) - send report manually`, about: `Website: ${website} | City: ${city} | Trade: ${trade}`, source: 'a26locallead.co/audit' });
+    return res.status(429).json({ error: BUSY, limited: blocked });
+  }
+
   const gKey = process.env.GOOGLE_API_KEY;
   const t0 = Date.now();
   const [siteR, gR, speedR] = await Promise.all([
@@ -43,6 +73,11 @@ module.exports = async (req, res) => {
     gKey ? settle(googleFacts({ business, city, website, trade }, gKey)) : Promise.resolve({ ok: false, e: 'no key' }),
     settle(pageSpeed(website, gKey)),
   ]);
+
+  if (!gR.ok && /429|RESOURCE_EXHAUSTED|quota/i.test(gR.e || '')) {
+    await logLead({ ...contact, biggest_pain: 'AI audit (Google quota reached) - send report manually', about: `Website: ${website} | City: ${city} | Trade: ${trade}`, source: 'a26locallead.co/audit' });
+    return res.status(429).json({ error: BUSY, limited: 'google_quota' });
+  }
 
   const facts = {
     site: siteR.ok ? siteR.v : { reachable: false, error: siteR.e },
@@ -65,25 +100,13 @@ module.exports = async (req, res) => {
   };
 
   // Lead notification (existing Make scenario → sheet row + email alert).
-  try {
-    const ctrl = new AbortController();
-    const t = setTimeout(() => ctrl.abort(), 4000);
-    await fetch(WEBHOOK, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      signal: ctrl.signal,
-      body: JSON.stringify({
-        name: String(body.name || '').slice(0, 80),
-        business,
-        email: String(body.email || '').slice(0, 120),
-        phone: String(body.phone || '').slice(0, 40),
-        biggest_pain: `AI audit: ${scored.overall}/100 (${scored.overallGrade}) → ${scored.plan.name}`,
-        about: `Website: ${website} | City: ${city} | Reviews: ${facts.google?.business?.reviews ?? '?'} | Map rank: ${facts.google?.searchRank ?? 'not top 20'} | Leader: ${scored.leader ? scored.leader.name + ' (' + scored.leader.reviews + ')' : '-'} | ${copy.headline}`,
-        source: 'a26locallead.co/audit',
-      }),
-    });
-    clearTimeout(t);
-  } catch {}
+  await logLead({
+    ...contact,
+    biggest_pain: `AI audit: ${scored.overall}/100 (${scored.overallGrade}) → ${scored.plan.name}`,
+    about: `Website: ${website} | City: ${city} | Reviews: ${facts.google?.business?.reviews ?? '?'} | Map rank: ${facts.google?.searchRank ?? 'not top 20'} | Leader: ${scored.leader ? scored.leader.name + ' (' + scored.leader.reviews + ')' : '-'} | ${copy.headline}`,
+    source: 'a26locallead.co/audit',
+  });
 
+  if (gR.ok && copy.ai) limit.remember(host, report);
   return res.status(200).json(report);
 };
