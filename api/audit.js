@@ -6,7 +6,7 @@ const { googleFacts, pageSpeed } = require('../lib/google');
 const { scoreAudit } = require('../lib/score');
 const { writeUp } = require('../lib/writeup');
 const limit = require('../lib/limit');
-const { saveReport } = require('../lib/store');
+const { saveReport, addLead } = require('../lib/store');
 
 const WEBHOOK = process.env.LEAD_WEBHOOK_URL || 'https://hook.us2.make.com/j1gpuwj5vyp0rsfoadnfco9nkeh6yltc';
 
@@ -105,6 +105,7 @@ module.exports = async (req, res) => {
     if (rid) {
       report.reportId = rid;
       report.reportUrl = `https://a26locallead.co/audit?r=${rid}`;
+      if (contact.email) await addLead(rid, contact.email).catch(() => {});
     }
   } catch {}
 
@@ -118,6 +119,7 @@ module.exports = async (req, res) => {
     score: scored.overall,
     plan: scored.plan.name,
     headline: copy.headline,
+    fix1: (copy.fixes && copy.fixes[0] && copy.fixes[0].title) || '',
   });
 
   if (gR.ok && copy.ai) limit.remember(host, report);
