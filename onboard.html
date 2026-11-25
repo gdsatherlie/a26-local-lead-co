@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2YYR3BLK3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2YYR3BLK3G');
+</script>
+<!-- Apollo website visitor tracking -->
+<script>function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,o.onload=function(){window.trackingFunctions.onLoad({appId:"6a2478d1832f4c001cfccc84"})},document.head.appendChild(o)}initApollo();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome aboard: client setup | a26 Local Lead Co</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="New client setup for a26 Local Lead Co.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230a0a0a'/%3E%3Ccircle cx='50' cy='50' r='12' fill='%23ff5a1f'/%3E%3Ccircle cx='50' cy='50' r='24' stroke='%23ff5a1f' stroke-width='3' fill='none' opacity='0.5'/%3E%3C/svg%3E">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #ff5a1f;
+    --accent-soft: #fff5f0;
+    --ink: #0a0a0a;
+    --body: #57534e;
+    --muted: #78716c;
+    --line: #e7e5e4;
+    --line-soft: #f5f5f4;
+    --bg: #ffffff;
+    --bg-soft: #fafaf9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: var(--body);
+    background: var(--bg);
+    font-feature-settings: 'cv11', 'ss01';
+  }
+  .text-ink { color: var(--ink); }
+  .text-body { color: var(--body); }
+  .text-muted { color: var(--muted); }
+  .accent { color: var(--accent); }
+  .bg-accent { background: var(--accent); }
+  .bg-accent-soft { background: var(--accent-soft); }
+  .border-line { border-color: var(--line); }
+  .bg-soft { background: var(--bg-soft); }
+
+  .hero-glow {
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(900px circle at 75% -10%, rgba(255, 90, 31, 0.14), transparent 50%),
+      radial-gradient(700px circle at 0% 30%, rgba(255, 90, 31, 0.06), transparent 50%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(to right, rgba(0,0,0,0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.035) 1px, transparent 1px);
+    background-size: 44px 44px;
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+
+  .pill {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.4rem 0.85rem;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 9999px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--ink);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+  }
+  .pill .dot {
+    width: 6px; height: 6px; border-radius: 9999px;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px rgba(255, 90, 31, 0.18);
+  }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem;
+    padding: 0.7rem 1.15rem;
+    background: var(--ink);
+    color: white;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border-radius: 0.55rem;
+    transition: background 0.2s, transform 0.2s;
+    line-height: 1;
+  }
+  .btn-primary:hover { background: #1c1917; transform: translateY(-1px); }
+
+  .btn-secondary {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem;
+    padding: 0.7rem 1.15rem;
+    background: white;
+    color: var(--ink);
+    font-weight: 500;
+    font-size: 0.9rem;
+    border: 1px solid var(--line);
+    border-radius: 0.55rem;
+    transition: background 0.2s, border-color 0.2s;
+    line-height: 1;
+  }
+  .btn-secondary:hover { background: var(--bg-soft); border-color: #d6d3d1; }
+
+  .card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 0.875rem;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover { border-color: #a8a29e; transform: translateY(-2px); box-shadow: 0 4px 14px rgba(0,0,0,0.04); }
+
+  .section { padding: 6rem 1.5rem; }
+  @media (max-width: 768px) { .section { padding: 4rem 1.25rem; } }
+
+  .kicker {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .display {
+    letter-spacing: -0.025em;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .brand-mark {
+    width: 1.6rem; height: 1.6rem;
+    flex-shrink: 0;
+    display: block;
+  }
+  .wordmark {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    line-height: 1;
+  }
+  .wordmark-primary {
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+  .wordmark-secondary {
+    font-weight: 500;
+    color: var(--muted);
+    font-size: 0.78em;
+    letter-spacing: 0.005em;
+  }
+  @media (max-width: 480px) {
+    .wordmark-secondary { display: none; }
+  }
+
+  html { scroll-behavior: smooth; }
+  section[id] { scroll-margin-top: 80px; }
+
+  /* Sticky scroll CTA */
+  .sticky-cta {
+    position: fixed;
+    bottom: 18px;
+    left: 50%;
+    transform: translate(-50%, 120%);
+    width: calc(100% - 32px);
+    max-width: 520px;
+    z-index: 999;
+    background: var(--ink);
+    color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18), 0 2px 6px rgba(0,0,0,0.08);
+    opacity: 0;
+    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.32s ease-out;
+    pointer-events: none;
+  }
+  .sticky-cta.sticky-cta-visible {
+    transform: translate(-50%, 0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .sticky-cta-content {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.7rem 0.7rem 0.7rem 1rem;
+  }
+  .sticky-cta-text {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+  }
+  .sticky-cta-text strong {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: white;
+    letter-spacing: -0.005em;
+  }
+  .sticky-cta-text span {
+    font-size: 0.74rem;
+    color: rgba(255,255,255,0.65);
+    margin-top: 0.1rem;
+  }
+  .sticky-cta-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 0.55rem 0.85rem;
+    background: var(--accent);
+    color: white;
+    font-weight: 500;
+    font-size: 0.82rem;
+    border-radius: 0.5rem;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.2s;
+    line-height: 1;
+  }
+  .sticky-cta-btn:hover { background: #e64f17; transform: translateY(-1px); }
+  .sticky-cta-close {
+    width: 28px; height: 28px;
+    border-radius: 9999px;
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.6);
+    font-size: 1.1rem;
+    line-height: 1;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: background 0.2s, color 0.2s;
+    flex-shrink: 0;
+  }
+  .sticky-cta-close:hover { background: rgba(255,255,255,0.16); color: white; }
+  @media (max-width: 640px) {
+    .sticky-cta-text span { display: none; }
+    .sticky-cta-text strong { font-size: 0.8rem; }
+    .sticky-cta-btn { font-size: 0.75rem; padding: 0.5rem 0.65rem; }
+    .sticky-cta {
+      left: 16px;
+      transform: translate(0, 120%);
+      max-width: calc(100% - 100px); /* leave room for chat bubble at bottom-right */
+    }
+    .sticky-cta.sticky-cta-visible { transform: translate(0, 0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sticky-cta { transition: opacity 0.2s ease-out; }
+  }
+
+  /* Trust signals */
+  .trust-mark {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #78716c;
+    letter-spacing: -0.005em;
+    transition: color 0.2s;
+  }
+  .trust-mark:hover { color: var(--ink); }
+  .trust-dot {
+    width: 4px; height: 4px;
+    border-radius: 9999px;
+    background: var(--line);
+    flex-shrink: 0;
+  }
+  @media (max-width: 640px) {
+    .trust-dot { display: none; }
+  }
+
+  /* Comparison grid */
+  .compare-grid { background: white; }
+  .compare-row {
+    display: grid;
+    grid-template-columns: 2fr 1.2fr 1fr 1fr 1fr;
+    border-bottom: 1px solid var(--line);
+  }
+  .compare-row.compare-last { border-bottom: none; }
+  .compare-row.compare-header {
+    background: var(--bg-soft);
+  }
+  .compare-cell {
+    padding: 1rem 0.9rem;
+    font-size: 0.9rem;
+    color: var(--body);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-right: 1px solid var(--line);
+  }
+  .compare-cell:last-child { border-right: none; }
+  .compare-cell.compare-feature {
+    font-weight: 500;
+    color: var(--ink);
+    text-align: left;
+    align-items: flex-start;
+    font-size: 0.85rem;
+    line-height: 1.35;
+  }
+  .compare-cell.compare-us {
+    background: var(--accent-soft);
+    border-right: 1px solid #fde2d0;
+  }
+  .check-yes {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 26px; height: 26px;
+    border-radius: 9999px;
+    background: var(--accent);
+    color: white;
+    font-weight: 700;
+    font-size: 0.85rem;
+    line-height: 1;
+  }
+  .check-no {
+    color: #d6d3d1;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  .check-partial {
+    font-size: 0.72rem;
+    color: var(--muted);
+    line-height: 1.25;
+    text-align: center;
+  }
+  @media (max-width: 768px) {
+    .compare-row {
+      grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr;
+    }
+    .compare-cell { padding: 0.7rem 0.4rem; font-size: 0.78rem; }
+    .compare-cell.compare-feature { font-size: 0.75rem; }
+    .check-yes { width: 20px; height: 20px; font-size: 0.7rem; }
+  }
+
+  .fade-in { opacity: 0; transform: translateY(8px); transition: opacity 0.4s ease-out, transform 0.4s ease-out; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  input:focus, textarea:focus { box-shadow: 0 0 0 3px rgba(255, 90, 31, 0.15); border-color: var(--accent) !important; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fade-in { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+    .btn-primary:hover { transform: none; }
+  }
+</style>
+</head>
+
+<body>
+
+<nav class="sticky top-0 z-50 backdrop-blur-md bg-white/75 border-b border-stone-100">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2.5">
+      <svg class="brand-mark" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="6" fill="#0a0a0a"/>
+        <circle cx="12" cy="12" r="2.6" fill="#ff5a1f"/>
+        <circle cx="12" cy="12" r="5.5" stroke="#ff5a1f" stroke-width="1" fill="none" opacity="0.5"/>
+      </svg>
+      <span class="wordmark text-[15px]">
+        <span class="wordmark-primary">a26</span>
+        <span class="wordmark-secondary">Local Lead Co</span>
+      </span>
+    </a>
+    <div class="flex items-center gap-5 text-sm text-body">
+      <a href="/plans" class="hidden md:inline hover:text-ink transition">Plans</a>
+      <a href="/reviews" class="hidden md:inline hover:text-ink transition">Google reviews</a>
+      <a href="/receptionist" class="hidden md:inline hover:text-ink transition">AI receptionist</a>
+      <a href="mailto:team@a26locallead.co" class="btn-primary !py-1.5 !px-3.5 !text-[13px]">Questions? Email us</a>
+    </div>
+  </div>
+</nav>
+<section class="relative overflow-hidden border-b border-line">
+  <div class="hero-glow"></div><div class="hero-grid"></div>
+  <div class="relative max-w-3xl mx-auto px-6 pt-14 pb-10 text-center">
+    <span class="kicker">Welcome aboard</span>
+    <h1 class="display text-[2.1rem] md:text-[3rem] leading-[1.05] mt-4 mb-4">Let's get you set up.</h1>
+    <p class="text-body leading-relaxed">This takes about 5 minutes. It gives us everything we need to start this week. <span id="planLine"></span></p>
+  </div>
+</section>
+<main class="max-w-3xl mx-auto px-6 py-10">
+<form id="onboardForm" autocomplete="on">
+<section data-show="all" id="s-contact" class="card p-6 md:p-8 mb-5">
+  <h2 class="text-ink font-semibold text-[1.1rem]">1. Your business</h2>
+  <p class="text-sm text-muted mt-1 mb-5">Who we are working with and where to send your leads and reports.</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div><label class="block text-xs font-semibold text-ink mb-1.5">Business name <span class="text-muted font-normal">(as on Google)</span></label><input name="business" type="text" required class="w-full px-3.5 py-2.5 border border-line rounded-lg text-sm" placeholder="Smith Heating &amp; Air"></div><div><label class="block text-xs font-semibold text-ink mb-1.5">Your name</label><input name="contact" type="text" required class="w-full px-3.5 py-2.5 border border-line rounded-lg text-sm" placeholder="Pat Smith"></div><div><label class="block text-xs font-semibold text-ink mb-1.5">Email for reports</label><input name="email" type="email" required class="w-full px-3.5 py-2.5 border border-line rounded-lg text-sm" placeholder="pat@smithhvac.com"></div><div><label class="block text-xs font-semibold text-ink mb-1.5">Mobile for lead texts</label><input name="mobile" type="tel" required class="w-full px-3.5 py-2.5 border border-line rounded-lg text-sm" placeholder="(555) 123-4567"></div><div><label class="block text-xs font-semibold text-ink mb-1.5">Website</label><input name="website" type="text" class="w-full px-3.5 py-2.5 border border-line rounded-lg text-sm" placeholder="smithhvac.com"></div><div><label class="block text-xs font-semibold text-ink mb-1.5">Google Business Profile</label><input name="gbp" type="text" class="w-full px-3.5 py-2.5 border border-line rounded-lg text-sm" placeholder="Name or Maps link"></div></div>
+</section><section data-show="all" id="s-jobs" class="card p-6 md:p-8 mb-5">
+  <h2 class="text-ink font-semibold text-[1.1rem]">2. Your area and jobs</h2>
+  <p class="text-sm text-muted mt-1 mb-5">So your Google profile, pages and ads target the right work.</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div class=""><label class="block text-xs font-semibold text-ink mb-1.5">Cities and towns you serve</label><textarea name="cities" rows="3" class="w-full px-3.5 py-2.5 border border-line rounded-lg text-sm" placeholder="Springfield, Chatham, Rochester…"></textarea></div><div class=""><label class="block text-xs font-semibold text-ink mb-1.5">Your top 3 services</label><textarea name="services" rows="3" class="w-full px-3.5 py-2.5 border border-line rounded-lg text-sm" placeholder="Furnace repair, AC install, water heaters"></textarea></div><div><label class="block text-xs font-semibold text-ink mb-1.5">Average job value <span class="text-muted font-normal">(rough is fine)</span></label><input name="jobValue" type="text" class="w-full px-3.5 py-2.5 border border-line rounded-lg text-sm" placeholder="$450"></div><div><label class="block text-xs font-semibold text-ink mb-1.5">Business hours</label><input name="hours" type="text" class="w-full px-3.5 py-2.5 border border-line rounded-lg text-sm" placeholder="Mon–Fri 7–5, Sat 8–12"></div><div><label class="block text-xs font-semibold text-ink mb-1.5">Do you take emergency or after-hours calls?</label><select name="emergency"  class="w-full px-3.5 py-2.5 border border-line rounded-lg text-sm bg-white"><option value="">Choose one</option><option>Yes, 24/7</option><option>Yes, some evenings/weekends</option><option>No</option></select></div></div>
+</section><section data-show="all" id="s-gbp" class="card p-6 md:p-8 mb-5">
+  <h2 class="text-ink font-semibold text-[1.1rem]">3. Google Business Profile access</h2>
+  <p class="text-sm text-muted mt-1 mb-5">We need manager access to reply to reviews, post updates and fix your listing. You stay the owner.</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div class="md:col-span-2 text-sm text-body leading-relaxed"><ol class="list-decimal ml-5 space-y-1"><li>Search your business name on Google while signed in, or open <a class="underline" href="https://business.google.com" target="_blank" rel="noopener">business.google.com</a>.</li><li>Click the three dots, then <b>Business Profile settings</b> → <b>Managers</b> → <b>Add</b>.</li><li>Enter <b>team@a26locallead.co</b>, choose <b>Manager</b>, and send the invite.</li></ol></div><div><label class="block text-xs font-semibold text-ink mb-1.5">Manager access</label><select name="gbpAccess" required class="w-full px-3.5 py-2.5 border border-line rounded-lg text-sm bg-white"><option value="">Choose one</option><option>Done, invite sent</option><option>I need help with this</option><option>We don't have a Google profile yet</option></select></div></div>
+</section><section data-show="all" id="s-reviews" class="card p-6 md:p-8 mb-5">
+  <h2 class="text-ink font-semibold text-[1.1rem]">4. Review requests</h2>
+  <p class="text-sm text-muted mt-1 mb-5">After every job, your customer gets a text with a one-tap link to leave a review, plus one reminder.</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div><label class="block text-xs font-semibold text-ink mb-1.5">How do you track finished jobs?</label><select name="jobSystem" required class="w-full px-3.5 py-2.5 border border-line rounded-lg text-sm bg-white"><option value="">Choose one</option><option>ServiceTitan</option><option>Housecall Pro</option><option>Jobber</option><option>FieldEdge</option><option>QuickBooks</option><option>Paper or whiteboard</option><option>Other</option></select></div><div><label class="block text-xs font-semibold text-ink mb-1.5">Jobs per week, roughly</label><input name="jobsPerWeek" type="text" class="w-full px-3.5 py-2.5 border border-line rounded-lg text-sm" placeholder="25"></div><div><label class="block text-xs font-semibold text-ink mb-1.5">Who gets bad-review alerts?</label><input name="alertPhone" type="text" class="w-full px-3.5 py-2.5 border border-line rounded-lg text-sm" placeholder="Mobile or email"></div><div><label class="block text-xs font-semibold text-ink mb-1.5">Name to sign review replies with</label><input name="replyName" type="text" class="w-full px-3.5 py-2.5 border border-line rounded-lg text-sm" placeholder="Pat, or "The Smith team""></div></div>
+</section><section data-show="growth engine" id="s-site" class="card p-6 md:p-8 mb-5">
+  <h2 class="text-ink font-semibold text-[1.1rem]">5. Your website</h2>
+  <p class="text-sm text-muted mt-1 mb-5">We keep your service and city pages current, so we need someone who can give us access.</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div><label class="block text-xs font-semibold text-ink mb-1.5">What is your site built on?</label><select name="sitePlatform"  class="w-full px-3.5 py-2.5 border border-line rounded-lg text-sm bg-white"><option value="">Choose one</option><option>WordPress</option><option>Wix</option><option>Squarespace</option><option>GoDaddy</option><option>Shopify</option><option>Not sure</option><option>Other</option></select></div><div><label class="block text-xs font-semibold text-ink mb-1.5">Who manages it today?</label><select name="siteManager"  class="w-full px-3.5 py-2.5 border border-line rounded-lg text-sm bg-white"><option value="">Choose one</option><option>We do</option><option>A web company or freelancer</option><option>Nobody really</option></select></div><div class="md:col-span-2"><label class="block text-xs font-semibold text-ink mb-1.5">How can we get editor access?</label><textarea name="siteAccess" rows="3" class="w-full px-3.5 py-2.5 border border-line rounded-lg text-sm" placeholder="We'll send an invite, or contact our web person at…"></textarea></div></div>
+</section><section data-show="engine" id="s-ads" class="card p-6 md:p-8 mb-5">
+  <h2 class="text-ink font-semibold text-[1.1rem]">6. Google Ads</h2>
+  <p class="text-sm text-muted mt-1 mb-5">Ad spend is billed by Google to your own card and account, so you always own it.</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div><label class="block text-xs font-semibold text-ink mb-1.5">Do you have a Google Ads account?</label><select name="adsAccount"  class="w-full px-3.5 py-2.5 border border-line rounded-lg text-sm bg-white"><option value="">Choose one</option><option>Yes</option><option>No</option><option>Not sure</option></select></div><div><label class="block text-xs font-semibold text-ink mb-1.5">Google Ads customer ID <span class="text-muted font-normal">(if you have one)</span></label><input name="adsId" type="text" class="w-full px-3.5 py-2.5 border border-line rounded-lg text-sm" placeholder="123-456-7890"></div><div><label class="block text-xs font-semibold text-ink mb-1.5">Local Services Ads ("Google Guaranteed")</label><select name="lsa"  class="w-full px-3.5 py-2.5 border border-line rounded-lg text-sm bg-white"><option value="">Choose one</option><option>Running now</option><option>Set up before, not running</option><option>Never set up</option></select></div><div><label class="block text-xs font-semibold text-ink mb-1.5">Starting monthly ad budget</label><input name="budget" type="text" class="w-full px-3.5 py-2.5 border border-line rounded-lg text-sm" placeholder="$1,500"></div><div><label class="block text-xs font-semibold text-ink mb-1.5">License and insurance documents ready for Google's check?</label><select name="licenseDocs"  class="w-full px-3.5 py-2.5 border border-line rounded-lg text-sm bg-white"><option value="">Choose one</option><option>Yes</option><option>Need to find them</option><option>Not sure what's needed</option></select></div></div>
+</section><section data-show="receptionist addon" id="s-recept" class="card p-6 md:p-8 mb-5">
+  <h2 class="text-ink font-semibold text-[1.1rem]">7. AI receptionist</h2>
+  <p class="text-sm text-muted mt-1 mb-5">How calls reach the receptionist and where it should book jobs.</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div><label class="block text-xs font-semibold text-ink mb-1.5">Business phone number</label><input name="mainPhone" type="text" class="w-full px-3.5 py-2.5 border border-line rounded-lg text-sm" placeholder="(555) 987-6543"></div><div><label class="block text-xs font-semibold text-ink mb-1.5">Phone provider</label><select name="phoneCarrier"  class="w-full px-3.5 py-2.5 border border-line rounded-lg text-sm bg-white"><option value="">Choose one</option><option>Cell phone</option><option>RingCentral</option><option>Google Voice</option><option>Comcast/Spectrum business</option><option>Other</option><option>Not sure</option></select></div><div><label class="block text-xs font-semibold text-ink mb-1.5">Where should it book jobs?</label><select name="calendar"  class="w-full px-3.5 py-2.5 border border-line rounded-lg text-sm bg-white"><option value="">Choose one</option><option>Google Calendar</option><option>Outlook</option><option>ServiceTitan</option><option>Housecall Pro</option><option>Jobber</option><option>Just text me the lead</option></select></div><div class="md:col-span-2"><label class="block text-xs font-semibold text-ink mb-1.5">Anything it should know</label><textarea name="callRules" rows="3" class="w-full px-3.5 py-2.5 border border-line rounded-lg text-sm" placeholder="Service fee, areas you don't cover, what counts as an emergency…"></textarea></div></div>
+</section><section data-show="all" id="s-else" class="card p-6 md:p-8 mb-5">
+  <h2 class="text-ink font-semibold text-[1.1rem]">Anything else</h2>
+  <p class="text-sm text-muted mt-1 mb-5">Logins you'd rather share on a call, goals for the first 90 days, questions.</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div class="md:col-span-2"><label class="block text-xs font-semibold text-ink mb-1.5">Notes</label><textarea name="notes" rows="3" class="w-full px-3.5 py-2.5 border border-line rounded-lg text-sm" placeholder=""></textarea></div></div>
+</section>
+<label class="flex items-center gap-2 text-sm text-body mb-5" id="addonToggle"><input type="checkbox" id="addRecept"> I'm also adding the AI receptionist</label>
+<input name="company_url" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+<button type="submit" class="btn-primary w-full !py-3 !text-[0.95rem]">Send my setup details</button>
+<p id="formError" class="text-sm text-center mt-3" style="color:#b42318;display:none"></p>
+</form>
+<div id="done" class="card p-8 text-center" style="display:none">
+  <h2 class="display text-[1.8rem] text-ink">Got it. Thank you.</h2>
+  <p class="text-body mt-3 leading-relaxed">We'll start setup within one business day and email you if we need anything. You'll get your first report after 30 days.</p>
+  <p class="text-body mt-3">Want to talk it through? <a class="underline text-ink" href="https://cal.com/a26localleadco/a26-local-lead-co-demo-call">Book a kickoff call</a> or email <a class="underline text-ink" href="mailto:team@a26locallead.co">team@a26locallead.co</a>.</p>
+</div>
+</main>
+<footer class="border-t border-line bg-white py-10 px-6 no-print">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-sm">
+    <a href="/" class="flex items-center gap-2.5">
+      <svg class="brand-mark" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#0a0a0a"/><circle cx="12" cy="12" r="2.6" fill="#ff5a1f"/><circle cx="12" cy="12" r="5.5" stroke="#ff5a1f" stroke-width="1" fill="none" opacity="0.5"/></svg>
+      <span class="wordmark"><span class="wordmark-primary">a26</span> <span class="wordmark-secondary">Local Lead Co</span></span>
+    </a>
+    <div class="text-muted">Google reviews, local SEO and Google ads for local service businesses.</div>
+    <div class="flex flex-wrap items-center gap-x-5 gap-y-1 text-body">
+      <a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="mailto:team@a26locallead.co">team@a26locallead.co</a>
+    </div>
+  </div>
+</footer>
+<script>
+const P=new URLSearchParams(location.search);
+const plan=(P.get('plan')||'reviews').toLowerCase();
+const NAMES={reviews:'Google Reviews plan',growth:'Local Growth plan',engine:'Lead Engine plan',receptionist:'AI receptionist',addon:'AI receptionist add-on'};
+document.getElementById('planLine').textContent=NAMES[plan]?'Plan: '+NAMES[plan]+'.':'';
+function apply(){
+  const recept=document.getElementById('addRecept').checked;
+  document.querySelectorAll('section[data-show]').forEach(s=>{
+    const show=s.dataset.show, ids=s.id;
+    let on=show==='all'||show.split(' ').includes(plan)||(show.includes('receptionist')&&recept);
+    if((plan==='receptionist'||plan==='addon')&&['s-gbp','s-reviews'].includes(ids)) on=false;
+    s.style.display=on?'':'none';
+    s.querySelectorAll('[required]').forEach(i=>{ if(!on){i.dataset.req='1';i.required=false;} else if(i.dataset.req){i.required=true;} });
+  });
+}
+if(plan==='receptionist'||plan==='addon') document.getElementById('addonToggle').style.display='none';
+document.getElementById('addRecept').addEventListener('change',apply); apply();
+document.getElementById('onboardForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const fe=document.getElementById('formError'); fe.style.display='none';
+  const data={};
+  document.querySelectorAll('section[data-show]').forEach(s=>{ if(s.style.display==='none') return; s.querySelectorAll('input,select,textarea').forEach(i=>{ if(i.value) data[i.name]=i.value; }); });
+  data.addReceptionist=document.getElementById('addRecept').checked;
+  const btn=e.target.querySelector('button[type=submit]'); btn.disabled=true; btn.textContent='Sending…';
+  try{
+    const res=await fetch('/api/onboard',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({plan,session:P.get('session')||'',company_url:e.target.company_url.value,data})});
+    const j=await res.json(); if(!res.ok||!j.ok) throw new Error(j.error||'Something went wrong');
+    e.target.style.display='none'; document.getElementById('done').style.display='block'; window.scrollTo(0,0);
+    try{ gtag('event','onboarding_submitted',{plan}); }catch(_){}
+  }catch(err){ btn.disabled=false; btn.textContent='Send my setup details'; fe.textContent=err.message+'. Please try again or email team@a26locallead.co.'; fe.style.display='block'; }
+});
+</script>
+</body>
+</html>
