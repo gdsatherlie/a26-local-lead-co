@@ -6,6 +6,7 @@ const { googleFacts, pageSpeed } = require('../lib/google');
 const { scoreAudit } = require('../lib/score');
 const { writeUp } = require('../lib/writeup');
 const limit = require('../lib/limit');
+const { saveReport } = require('../lib/store');
 
 const WEBHOOK = process.env.LEAD_WEBHOOK_URL || 'https://hook.us2.make.com/j1gpuwj5vyp0rsfoadnfco9nkeh6yltc';
 
@@ -99,12 +100,24 @@ module.exports = async (req, res) => {
     ms: Date.now() - t0,
   };
 
+  try {
+    const rid = await saveReport(report);
+    if (rid) {
+      report.reportId = rid;
+      report.reportUrl = `https://a26locallead.co/audit?r=${rid}`;
+    }
+  } catch {}
+
   // Lead notification (existing Make scenario → sheet row + email alert).
   await logLead({
     ...contact,
     biggest_pain: `AI audit: ${scored.overall}/100 (${scored.overallGrade}) → ${scored.plan.name}`,
     about: `Website: ${website} | City: ${city} | Reviews: ${facts.google?.business?.reviews ?? '?'} | Map rank: ${facts.google?.searchRank ?? 'not top 20'} | Leader: ${scored.leader ? scored.leader.name + ' (' + scored.leader.reviews + ')' : '-'} | ${copy.headline}`,
     source: 'a26locallead.co/audit',
+    report_url: report.reportUrl || '',
+    score: scored.overall,
+    plan: scored.plan.name,
+    headline: copy.headline,
   });
 
   if (gR.ok && copy.ai) limit.remember(host, report);
