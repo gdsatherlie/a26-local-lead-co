@@ -51,7 +51,7 @@ module.exports = async (req, res) => {
   };
   const scored = scoreAudit(facts);
   const input = { business, city, website, trade };
-  const copy = await writeUp(input, facts, scored);
+  const copy = await writeUp(input, facts, scored, 54000 - (Date.now() - t0));
 
   const report = {
     id: Math.random().toString(36).slice(2, 10),
