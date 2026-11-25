@@ -60,7 +60,7 @@ module.exports = async (req, res) => {
   const hit = limit.cached(host);
   if (hit) return res.status(200).json({ ...hit, cached: true });
 
-  const blocked = limit.take(limit.clientIp(req));
+  const blocked = await limit.takeDurable(limit.clientIp(req));
   if (blocked) {
     await logLead({ ...contact, biggest_pain: `AI audit (rate-limited: ${blocked}) - send report manually`, about: `Website: ${website} | City: ${city} | Trade: ${trade}`, source: 'a26locallead.co/audit' });
     return res.status(429).json({ error: BUSY, limited: blocked });
